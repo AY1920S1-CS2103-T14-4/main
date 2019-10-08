@@ -20,12 +20,16 @@
 <li><a href="#editing-a-expense-code-edit-code">3.5. Editing a expense : <code>edit</code></a></li>
 <li><a href="#locating-persons-by-name-code-find-code">3.6. Locating persons by name: <code>find</code></a></li>
 <li><a href="#deleting-a-expense-code-delete-code">3.7. Deleting a expense : <code>delete</code></a></li>
-<li><a href="#clearing-all-entries-code-clear-code">3.8. Clearing all entries : <code>clear</code></a></li>
-<li><a href="#exiting-the-program-code-exit-code">3.9. Exiting the program : <code>exit</code></a></li>
-<li><a href="#saving-the-data">3.10. Saving the data</a></li>
-<li><a href="#encrypting-data-files-code-coming-in-v2-0-code">3.11. Encrypting data files <code>[coming in v2.0]</code></a></li>
-<li><a href="#autocomplete-code-coming-in-v2-0-code">3.12. Autocomplete <code>[coming in v2.0]</code></a></li>
-<li><a href="#faq">3.13. FAQ</a></li>
+<li><a href="#exiting-the-program-code-exit-code">3.8. Exiting the program : <code>exit</code></a></li>
+<li><a href="#saving-the-data">3.9. Saving the data</a></li>
+<li><a href="#display-expense-by-tag-in-chart-code-coming-in-v2-0-code">3.10. Display expense by tag in chart <code>[coming in v2.0]</code></a></li>
+<li><a href="#set-a-budget-for-a-specific-month-code-coming-in-v2-0-code">3.11. Set a budget for a specific month <code>[coming in v2.0]</code></a></li>
+<li><a href="#set-a-recurring-expense-code-coming-in-v2-0-code">3.12. Set a Recurring Expense <code>[coming in v2.0]</code></a></li>
+<li><a href="#convert-expenses-to-a-specific-currency-code-coming-in-v2-0-code">3.13. Convert expenses to a specific currency <code>[coming in v2.0]</code></a></li>
+<li><a href="#undo-redo-commands-code-coming-in-v2-0-code">3.14. Undo/Redo commands <code>[coming in v2.0]</code></a></li>
+<li><a href="#autocomplete-code-coming-in-v2-0-code">3.15. Autocomplete <code>[coming in v2.0]</code></a></li>
+<li><a href="#show-command-history-code-coming-in-v2-0-code">3.16. Show command history <code>[coming in v2.0]</code></a></li>
+<li><a href="#faq">3.17. FAQ</a></li>
 </ul>
 </li>
 <li><a href="#command-summary">4. Command Summary</a></li>
@@ -79,7 +83,7 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <p><strong><code>list</code></strong> : lists all expenses</p>
 </li>
 <li>
-<p><strong><code>add</code></strong><code>n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01</code> : adds a contact named <code>John Doe</code> to the Address Book.</p>
+<p><strong><code>add</code></strong><code>add /n Textbook /a 23.50 /t education /t school</code> : adds an expense named <code>Textbook</code> to MyMorise with the tags <code>education</code> and <code>school</code>.</p>
 </li>
 <li>
 <p><strong><code>delete</code></strong><code>3</code> : deletes the 3rd expense shown in the current list</p>
@@ -108,16 +112,13 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <div class="ulist">
 <ul>
 <li>
-<p>Words in <code>UPPER_CASE</code> are the parameters to be supplied by the user e.g. in <code>add n/NAME</code>, <code>NAME</code> is a parameter which can be used as <code>add n/John Doe</code>.</p>
+<p>Words in <code>UPPER_CASE</code> are the parameters to be supplied by the user</p>
 </li>
 <li>
-<p>Items in square brackets are optional e.g <code>n/NAME [t/TAG]</code> can be used as <code>n/John Doe t/friend</code> or as <code>n/John Doe</code>.</p>
+<p>Items in square brackets are optional e.g <code>/a NAME [/t TAG]</code> can be used as <code>/a Bread /t Food</code> or as <code>/a Bread</code>.</p>
 </li>
 <li>
-<p>Items with <code>…</code>​ after them can be used multiple times including zero times e.g. <code>[t/TAG]&#8230;&#8203;</code> can be used as <code>&#160;</code> (i.e. 0 times), <code>t/friend</code>, <code>t/friend t/family</code> etc.</p>
-</li>
-<li>
-<p>Parameters can be in any order e.g. if the command specifies <code>n/NAME p/PHONE_NUMBER</code>, <code>p/PHONE_NUMBER n/NAME</code> is also acceptable.</p>
+<p>Items post-fixed with <code>…</code>​ can be used zero or more times e.g. <code>[/t TAG]…</code>​ can be excluded or include 1 or more tags <code>/t food /t drinks</code>.</p>
 </li>
 </ul>
 </div>
@@ -126,15 +127,15 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <div class="sect2">
 <h3 id="viewing-help-code-help-code"><a class="link" href="#viewing-help-code-help-code">3.1. Viewing help : <code>help</code></a></h3>
 <div class="paragraph">
-<p>Displays all commands available for this application.<br>
+<p>Displays all CLI commands available.<br>
 Format: <code>help</code></p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="adding-a-expense-code-add-code"><a class="link" href="#adding-a-expense-code-add-code">3.2. Adding a expense: <code>add</code></a></h3>
 <div class="paragraph">
-<p>Adds a person to the address book<br>
-Format: <code>add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]&#8230;&#8203;</code></p>
+<p>Adds an expense to track.<br>
+Format: <code>add /n NAME /a AMOUNT [/t TAG]…​</code></p>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -143,7 +144,7 @@ Format: <code>add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]&#8230;&#8203;<
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-A person can have any number of tags (including 0)
+An expense can have any number of tags (including no tags)
 </td>
 </tr>
 </table>
@@ -154,10 +155,10 @@ A person can have any number of tags (including 0)
 <div class="ulist">
 <ul>
 <li>
-<p><code>add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01</code></p>
+<p><code>add /n Coffee /a 1.80 /t food</code></p>
 </li>
 <li>
-<p><code>add n/Betsy Crowe t/friend e/betsycrowe@example.com a/Newgate Prison p/1234567 t/criminal</code></p>
+<p><code>add /n Textbook /a 23.50 /t education /t school</code></p>
 </li>
 </ul>
 </div>
@@ -165,7 +166,7 @@ A person can have any number of tags (including 0)
 <div class="sect2">
 <h3 id="listing-all-expenses-code-list-code"><a class="link" href="#listing-all-expenses-code-list-code">3.3. Listing all expenses : <code>list</code></a></h3>
 <div class="paragraph">
-<p>Shows a list of all persons in the address book.<br>
+<p>Shows a list of all expenses with optional matching criterion in MyMorise.<br>
 Format: <code>list</code></p>
 </div>
 </div>
@@ -180,14 +181,14 @@ Format: <code>view</code></p>
 <h3 id="editing-a-expense-code-edit-code"><a class="link" href="#editing-a-expense-code-edit-code">3.5. Editing a expense : <code>edit</code></a></h3>
 <div class="paragraph">
 <p>Edits an existing person in the address book.<br>
-Format: <code>edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]&#8230;&#8203;</code></p>
+Format: <code>edit INDEX [/n NAME] [/a AMOUNT] [/t TAG]…</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
 <div class="ulist">
 <ul>
 <li>
-<p>Edits the person at the specified <code>INDEX</code>. The index refers to the index number shown in the displayed person list. The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
+<p>Edits the expense at the specified <code>INDEX</code>. The index refers to the index number shown in the displayed expense list. The index <strong>must be a positive integer</strong> 1, 2, 3, …​ The index is relative to what is displayed on the GUI rather than the actual index of the expense in MyMorise.</p>
 </li>
 <li>
 <p>At least one of the optional fields must be provided.</p>
@@ -196,10 +197,10 @@ Format: <code>edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]&#8230;
 <p>Existing values will be updated to the input values.</p>
 </li>
 <li>
-<p>When editing tags, the existing tags of the person will be removed i.e adding of tags is not cumulative.</p>
+<p>When editing tags, the existing tags of the expense will be removed i.e adding of tags is not cumulative.</p>
 </li>
 <li>
-<p>You can remove all the person&#8217;s tags by typing <code>t/</code> without specifying any tags after it.</p>
+<p>You can remove all the expense’s tags by typing <code>/t</code>  without specifying any tags after it.</p>
 </li>
 </ul>
 </div>
@@ -211,12 +212,12 @@ Format: <code>edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]&#8230;
 <div class="ulist">
 <ul>
 <li>
-<p><code>edit 1 p/91234567 e/johndoe@example.com</code><br>
-Edits the phone number and email address of the 1st person to be <code>91234567</code> and <code>johndoe@example.com</code> respectively.</p>
+<p><code>edit 1 /a 20.10</code><br>
+Edits the amount of the 1st expense to be <code>$20.10</code>.</p>
 </li>
 <li>
-<p><code>edit 2 n/Betsy Crower t/</code><br>
-Edits the name of the 2nd person to be <code>Betsy Crower</code> and clears all existing tags.</p>
+<p><code>edit 2 /n Poets Coffee /t</code><br>
+Replaces the name of the 2nd expense to <code>Poets Coffee</code> and clears all existing tags.</p>
 </li>
 </ul>
 </div>
@@ -224,27 +225,27 @@ Edits the name of the 2nd person to be <code>Betsy Crower</code> and clears all 
 <div class="sect2">
 <h3 id="locating-persons-by-name-code-find-code"><a class="link" href="#locating-persons-by-name-code-find-code">3.6. Locating persons by name: <code>find</code></a></h3>
 <div class="paragraph">
-<p>Finds persons whose names contain any of the given keywords.<br>
-Format: <code>find KEYWORD [MORE_KEYWORDS]</code></p>
+<p>Finds all expenses by name, date, tag.<br>
+Format: <code>find [/n NAME] [/d DATE] [/t TAG]</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
 <div class="ulist">
 <ul>
 <li>
-<p>The search is case insensitive. e.g <code>hans</code> will match <code>Hans</code></p>
+<p>Search by name and tag is case insensitive. e.g hans will match Hans</p>
+</li>
+<li>
+<p>Search by date must use the date format <code>yyyyMMdd</code></p>
 </li>
 <li>
 <p>The order of the keywords does not matter. e.g. <code>Hans Bo</code> will match <code>Bo Hans</code></p>
 </li>
 <li>
-<p>Only the name is searched.</p>
+<p>Only the fields provided are searched.</p>
 </li>
 <li>
-<p>Only full words will be matched e.g. <code>Han</code> will not match <code>Hans</code></p>
-</li>
-<li>
-<p>Persons matching at least one keyword will be returned (i.e. <code>OR</code> search). e.g. <code>Hans Bo</code> will return <code>Hans Gruber</code>, <code>Bo Yang</code></p>
+<p>Only whole words will be matched e.g. <code>Han</code> will not match <code>Hans</code></p>
 </li>
 </ul>
 </div>
@@ -256,12 +257,12 @@ Format: <code>find KEYWORD [MORE_KEYWORDS]</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>find John</code><br>
-Returns <code>john</code> and <code>John Doe</code></p>
+<p>find Coffee<br>
+Returns <code>coffee</code> and <code>Starbucks Coffee</code>.</p>
 </li>
 <li>
-<p><code>find Betsy Tim John</code><br>
-Returns any person having names <code>Betsy</code>, <code>Tim</code>, or <code>John</code></p>
+<p>find Cheesecake<br>
+Returns any expense having names <code>Cheesecake</code>, eg: <code>Strawberry Cheesecake</code>, <code>Blueberry Cheesecake</code>.</p>
 </li>
 </ul>
 </div>
@@ -269,7 +270,7 @@ Returns any person having names <code>Betsy</code>, <code>Tim</code>, or <code>J
 <div class="sect2">
 <h3 id="deleting-a-expense-code-delete-code"><a class="link" href="#deleting-a-expense-code-delete-code">3.7. Deleting a expense : <code>delete</code></a></h3>
 <div class="paragraph">
-<p>Deletes the specified person from the address book.<br>
+<p>Deletes the specified expense from MyMorise.<br>
 Format: <code>delete INDEX</code></p>
 </div>
 <div class="sidebarblock">
@@ -277,13 +278,14 @@ Format: <code>delete INDEX</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p>Deletes the person at the specified <code>INDEX</code>.</p>
+<p>Deletes the expense at the specified INDEX.</p>
 </li>
 <li>
-<p>The index refers to the index number shown in the displayed person list.</p>
+<p>The index refers to the index number shown in the displayed expense list.</p>
 </li>
 <li>
-<p>The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
+<p>The index <strong>must be a positive integer</strong> 1, 2, 3, …​
+The index is relative to what is displayed on the GUI rather than the actual index of the stored expenses.</p>
 </li>
 </ul>
 </div>
@@ -297,54 +299,77 @@ Format: <code>delete INDEX</code></p>
 <li>
 <p><code>list</code><br>
 <code>delete 2</code><br>
-Deletes the 2nd person in the address book.</p>
+Deletes the 2nd expense in MyMorise.</p>
 </li>
 <li>
-<p><code>find Betsy</code><br>
+<p><code>find Coffee</code><br>
 <code>delete 1</code><br>
-Deletes the 1st person in the results of the <code>find</code> command.</p>
+Deletes the 1st expense in the results of the find command.</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="clearing-all-entries-code-clear-code"><a class="link" href="#clearing-all-entries-code-clear-code">3.8. Clearing all entries : <code>clear</code></a></h3>
-<div class="paragraph">
-<p>Clears all entries from the address book.<br>
-Format: <code>clear</code></p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.9. Exiting the program : <code>exit</code></a></h3>
+<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.8. Exiting the program : <code>exit</code></a></h3>
 <div class="paragraph">
 <p>Exits the program.<br>
 Format: <code>exit</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.10. Saving the data</a></h3>
+<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.9. Saving the data</a></h3>
 <div class="paragraph">
-<p>Address book data are saved in the hard disk automatically after any command that changes the data.<br>
+<p>Expense data are saved in the hard disk automatically after any command that changes the data.
 There is no need to save manually.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="encrypting-data-files-code-coming-in-v2-0-code"><a class="link" href="#encrypting-data-files-code-coming-in-v2-0-code">3.11. Encrypting data files <code>[coming in v2.0]</code></a></h3>
+<h3 id="display-expense-by-tag-in-chart-code-coming-in-v2-0-code"><a class="link" href="#display-expense-by-tag-in-chart-code-coming-in-v2-0-code">3.10. Display expense by tag in chart <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
-<p><em>{explain how the user can enable/disable data encryption}</em></p>
+<p>{Displays the expense in a pie chart to show breakdown of expenses.}</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="autocomplete-code-coming-in-v2-0-code"><a class="link" href="#autocomplete-code-coming-in-v2-0-code">3.12. Autocomplete <code>[coming in v2.0]</code></a></h3>
+<h3 id="set-a-budget-for-a-specific-month-code-coming-in-v2-0-code"><a class="link" href="#set-a-budget-for-a-specific-month-code-coming-in-v2-0-code">3.11. Set a budget for a specific month <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
-<p>MYMorise supports auto-complete feature (i.e. when you type <code>ad</code>, the program will auto-complete to <code>add</code> for you)</p>
+<p>{Sets a budget for a specific month. All expenses made in the month will deduct its amount from the budget to indicate how much funds are available to spend}</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="faq"><a class="link" href="#faq">3.13. FAQ</a></h3>
+<h3 id="set-a-recurring-expense-code-coming-in-v2-0-code"><a class="link" href="#set-a-recurring-expense-code-coming-in-v2-0-code">3.12. Set a Recurring Expense <code>[coming in v2.0]</code></a></h3>
+<div class="paragraph">
+<p>{Sets a recurring expense for a specific duration and frequency.}</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="convert-expenses-to-a-specific-currency-code-coming-in-v2-0-code"><a class="link" href="#convert-expenses-to-a-specific-currency-code-coming-in-v2-0-code">3.13. Convert expenses to a specific currency <code>[coming in v2.0]</code></a></h3>
+<div class="paragraph">
+<p>{Shows the current list of expenses in a certain currency}</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="undo-redo-commands-code-coming-in-v2-0-code"><a class="link" href="#undo-redo-commands-code-coming-in-v2-0-code">3.14. Undo/Redo commands <code>[coming in v2.0]</code></a></h3>
+<div class="paragraph">
+<p>{Allows user to undo and redo commands.}</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="autocomplete-code-coming-in-v2-0-code"><a class="link" href="#autocomplete-code-coming-in-v2-0-code">3.15. Autocomplete <code>[coming in v2.0]</code></a></h3>
+<div class="paragraph">
+<p>{Enables user to quickly fill in command arguments with an autocomplete suggestion by pressing tab on the selected suggestion.}</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="show-command-history-code-coming-in-v2-0-code"><a class="link" href="#show-command-history-code-coming-in-v2-0-code">3.16. Show command history <code>[coming in v2.0]</code></a></h3>
+<div class="paragraph">
+<p>{User is able to navigate using up and down keys to cycle through past commands typed during the session.}</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="faq"><a class="link" href="#faq">3.17. FAQ</a></h3>
 <div class="paragraph">
 <p><strong>Q</strong>: How do I transfer my data to another Computer?<br>
-<strong>A</strong>: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous Address Book folder.</p>
+<strong>A</strong>: Run the app in the other computer and overwrite the empty data file it creates with the file that contains the data from your MyMorise/data folder.</p>
 </div>
 </div>
 </div>
@@ -355,23 +380,11 @@ There is no need to save manually.</p>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Add</strong> <code>add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]&#8230;&#8203;</code><br>
-e.g. <code>add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 t/friend t/colleague</code></p>
+<p><strong>Help</strong> : <code>help</code></p>
 </li>
 <li>
-<p><strong>Clear</strong> : <code>clear</code></p>
-</li>
-<li>
-<p><strong>Delete</strong> : <code>delete INDEX</code><br>
-e.g. <code>delete 3</code></p>
-</li>
-<li>
-<p><strong>Edit</strong> : <code>edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [t/TAG]&#8230;&#8203;</code><br>
-e.g. <code>edit 2 n/James Lee e/jameslee@example.com</code></p>
-</li>
-<li>
-<p><strong>Find</strong> : <code>find KEYWORD [MORE_KEYWORDS]</code><br>
-e.g. <code>find James Jake</code></p>
+<p><strong>Add</strong> <code>add /n NAME /a AMOUNT [/t TAG]…</code><br>
+e.g. <code>add /n Coffee /a 2.00 /t nourishment /t school</code></p>
 </li>
 <li>
 <p><strong>List</strong> : <code>list</code></p>
@@ -380,9 +393,19 @@ e.g. <code>find James Jake</code></p>
 <p><strong>View</strong> : <code>view</code></p>
 </li>
 <li>
-<p><strong>Help</strong> : <code>help</code></p>
+<p><strong>Edit</strong> : <code>edit INDEX [/n NAME] [/a AMOUNT] [/t TAG]…​</code><br>
+e.g. <code>edit 2 /n Starbucks Coffee /t nourishment</code></p>
+</li>
+<li>
+<p><strong>Find</strong> : <code>find [/n NAME] [/d DATE] [/t TAG]</code><br>
+e.g. <code>find /n Coffee /d 20190412 /t nourishment</code><br>
+e.g. <code>find /t nourishment</code></p>
+</li>
+<li>
+<p><strong>Delete</strong> : <code>delete INDEX</code><br>
+e.g. <code>delete 3</code></p>
 </li>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-08 07:18:18 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-08 18:20:02 UTC</div></div></div></body></html>

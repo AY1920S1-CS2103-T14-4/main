@@ -33,7 +33,28 @@
 <li><a href="#dev-ops">6. Dev Ops</a></li>
 <li><a href="#product-scope">Appendix A: Product Scope</a></li>
 <li><a href="#user-stories">Appendix B: User Stories</a></li>
-<li><a href="#use-cases">Appendix C: Use Cases</a></li>
+<li><a href="#use-cases">Appendix C: Use Cases</a>
+<ul class="sectlevel2">
+<li><a href="#_UC01">C.1. UC01 - Get Help<br></a></li>
+<li><a href="#_UC02">C.2. UC02 - Create an expense<br></a></li>
+<li><a href="#_UC03">C.3. UC03 - Create a recurring expense<br></a></li>
+<li><a href="#_UC04">C.4. UC04 - Retrieve all expenses<br></a></li>
+<li><a href="#_UC05">C.5. UC05 - Retrieve all recurring expenses<br></a></li>
+<li><a href="#_UC06">C.6. UC06 - Find an expense<br></a></li>
+<li><a href="#_UC07">C.7. UC07 - Update an expense<br></a></li>
+<li><a href="#_UC08">C.8. UC08 - Delete an expense<br></a></li>
+<li><a href="#_UC09">C.9. UC09 - Delete a recurring expense<br></a></li>
+<li><a href="#_UC10">C.10. UC10 - Set a budget for the current month<br></a></li>
+<li><a href="#_UC11">C.11. UC11 - Visualize funds left for current month<br></a></li>
+<li><a href="#_UC12">C.12. UC12 - Notify when funds are &lt; 50%<br></a></li>
+<li><a href="#_UC13">C.13. UC13 - Visualize expenditure<br></a></li>
+<li><a href="#_UC14">C.14. UC14 - Visualize expenditure breakdown by tag<br></a></li>
+<li><a href="#_UC15">C.15. UC15 - Recall commands previously used in current session<br></a></li>
+<li><a href="#_UC16">C.16. UC16 - Set default currency of expenses<br></a></li>
+<li><a href="#_UC17">C.17. UC17 - Create expense with specific currency<br></a></li>
+<li><a href="#_UC18">C.18. UC18 - Automatically convert expenses in foreign currencies to default currency<br></a></li>
+</ul>
+</li>
 <li><a href="#non-functional-requirements">Appendix D: Non Functional Requirements</a></li>
 <li><a href="#glossary">Appendix E: Glossary</a></li>
 <li><a href="#product-survey">Appendix F: Product Survey</a></li>
@@ -76,14 +97,14 @@
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-The <code>.puml</code> files used to create diagrams in this document can be found in the <a href="https://github.com/se-edu/addressbook-level3/tree/master/docs/diagrams/">diagrams</a> folder.
+The <code>.puml</code> files used to create diagrams in this document can be found in the <a href="https://github.com/AY1920S1-CS2103-T14-4/main/docs/diagrams/">diagrams</a> folder.
 Refer to the <a href="UsingPlantUml.html">Using PlantUML guide</a> to learn how to create and edit diagrams.
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p><code>Main</code> has two classes called <a href="https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/Main.java"><code>Main</code></a> and <a href="https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/MainApp.java"><code>MainApp</code></a>. It is responsible for,</p>
+<p><code>Main</code> has two classes called <a href="https://github.com/AY1920S1-CS2103-T14-4/main/src/main/java/seedu/address/Main.java"><code>Main</code></a> and <a href="https://github.com/AY1920S1-CS2103-T14-4/main/src/main/java/seedu/address/MainApp.java"><code>MainApp</code></a>. It is responsible for,</p>
 </div>
 <div class="ulist">
 <ul>
@@ -170,13 +191,13 @@ The following class plays an important role at the architecture level:</p>
 <div class="title">Figure 4. Structure of the UI Component</div>
 </div>
 <div class="paragraph">
-<p><strong>API</strong> : <a href="https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/ui/Ui.java"><code>Ui.java</code></a></p>
+<p><strong>API</strong> : <a href="https://github.com/AY1920S1-CS2103-T14-4/main/src/main/java/seedu/address/ui/Ui.java"><code>Ui.java</code></a></p>
 </div>
 <div class="paragraph">
 <p>The UI consists of a <code>MainWindow</code> that is made up of parts e.g.<code>CommandBox</code>, <code>ResultDisplay</code>, <code>PersonListPanel</code>, <code>StatusBarFooter</code> etc. All these, including the <code>MainWindow</code>, inherit from the abstract <code>UiPart</code> class.</p>
 </div>
 <div class="paragraph">
-<p>The <code>UI</code> component uses JavaFx UI framework. The layout of these UI parts are defined in matching <code>.fxml</code> files that are in the <code>src/main/resources/view</code> folder. For example, the layout of the <a href="https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/ui/MainWindow.java"><code>MainWindow</code></a> is specified in <a href="https://github.com/se-edu/addressbook-level3/tree/master/src/main/resources/view/MainWindow.fxml"><code>MainWindow.fxml</code></a></p>
+<p>The <code>UI</code> component uses JavaFx UI framework. The layout of these UI parts are defined in matching <code>.fxml</code> files that are in the <code>src/main/resources/view</code> folder. For example, the layout of the <a href="https://github.com/AY1920S1-CS2103-T14-4/main/src/main/java/seedu/address/ui/MainWindow.java"><code>MainWindow</code></a> is specified in <a href="https://github.com/AY1920S1-CS2103-T14-4/main/src/main/resources/view/MainWindow.fxml"><code>MainWindow.fxml</code></a></p>
 </div>
 <div class="paragraph">
 <p>The <code>UI</code> component,</p>
@@ -202,7 +223,7 @@ The following class plays an important role at the architecture level:</p>
 </div>
 <div class="paragraph">
 <p><strong>API</strong> :
-<a href="https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/logic/Logic.java"><code>Logic.java</code></a></p>
+<a href="https://github.com/AY1920S1-CS2103-T14-4/main/src/main/java/seedu/address/logic/Logic.java"><code>Logic.java</code></a></p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -254,7 +275,7 @@ The lifeline for <code>DeleteCommandParser</code> should end at the destroy mark
 <div class="title">Figure 7. Structure of the Model Component</div>
 </div>
 <div class="paragraph">
-<p><strong>API</strong> : <a href="https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/model/Model.java"><code>Model.java</code></a></p>
+<p><strong>API</strong> : <a href="https://github.com/AY1920S1-CS2103-T14-4/main/src/main/java/seedu/address/model/Model.java"><code>Model.java</code></a></p>
 </div>
 <div class="paragraph">
 <p>The <code>Model</code>,</p>
@@ -299,7 +320,7 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>Address Book<
 <div class="title">Figure 8. Structure of the Storage Component</div>
 </div>
 <div class="paragraph">
-<p><strong>API</strong> : <a href="https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/storage/Storage.java"><code>Storage.java</code></a></p>
+<p><strong>API</strong> : <a href="https://github.com/AY1920S1-CS2103-T14-4/main/src/main/java/seedu/address/storage/Storage.java"><code>Storage.java</code></a></p>
 </div>
 <div class="paragraph">
 <p>The <code>Storage</code> component,</p>
@@ -628,24 +649,34 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <div class="ulist">
 <ul>
 <li>
-<p>has a need to manage a significant number of contacts</p>
+<p>has a need to manage expenses,</p>
 </li>
 <li>
-<p>prefer desktop apps over other types</p>
+<p>requires categorization of expenses,</p>
 </li>
 <li>
-<p>can type fast</p>
+<p>prefer desktop apps,</p>
 </li>
 <li>
-<p>prefers typing over mouse input</p>
-</li>
-<li>
-<p>is reasonably comfortable using CLI apps</p>
+<p>prefers CLI type interfaces.</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p><strong>Value proposition</strong>: manage contacts faster than a typical mouse/GUI driven app</p>
+<p><strong>Value proposition</strong>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>manage expenses faster than a typical mouse/GUI driven app.</p>
+</li>
+<li>
+<p>easily view metrics of spending.</p>
+</li>
+<li>
+<p>easily identify spending behaviour and tweak to meet budgeting goals.</p>
+</li>
+</ul>
 </div>
 </div>
 </div>
@@ -655,12 +686,12 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <div class="paragraph">
 <p>Priorities: High (must have) - <code>* * *</code>, Medium (nice to have) - <code>* *</code>, Low (unlikely to have) - <code>*</code></p>
 </div>
-<table class="tableblock frame-all grid-all" style="width: 59%;">
+<table class="tableblock frame-all grid-all" style="width: 80%;">
 <colgroup>
-<col style="width: 22%;">
-<col style="width: 23%;">
-<col style="width: 25%;">
-<col style="width: 30%;">
+<col style="width: 1.0989%;">
+<col style="width: 27.4725%;">
+<col style="width: 27.4725%;">
+<col style="width: 43.9561%;">
 </colgroup>
 <thead>
 <tr>
@@ -672,6 +703,9 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </thead>
 <tbody>
 <tr>
+<td class="tableblock halign-left valign-top" colspan="4"><p class="tableblock"><strong>Basic Functionality</strong></p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">new user</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">see usage instructions</p></td>
@@ -680,37 +714,163 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">add a new person</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">create a plain old expense</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">delete a person</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">remove entries that I no longer need</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">create an expense with a tag</p></td>
+<td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">find a person by name</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">locate details of persons without having to go through the entire list</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">create a recurring expense</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">retrieve all expenses</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">review all my spending</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">retrieve all expenses for today</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">review my spending for the day</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">retrieve list of all recurring expenses</p></td>
+<td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">hide <a href="#private-contact-detail">private contact details</a> by default</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">minimize chance of someone else seeing them by accident</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">retrieve all expenses for the week</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">review my spending for the week</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">retrieve all expenses for the month</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">review my spending for the month</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">retrieve all expenses for the year</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">review my spending for the year</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">find an expense name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">locate a specific expense without having to go through the entire list</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">edit an expense</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">change the expense amount or tag</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">delete an expense</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">terminate a recurring expense</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="4"><p class="tableblock"><strong>Budgeting</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">set a budget for the month</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">check how much of my budget is left</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">know how much I can spend</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">notified every time I add an expense if I have less than 50% of my budget left</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">know how much I can spend</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="4"><p class="tableblock"><strong>UI</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">view in a pie chart expenditure breakdown by tag</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">view in a pie chart how much of my budget is spent/available for the current month</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">manage my spending</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">view in a bar chart my expenditure</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">visualise my spending habits</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="4"><p class="tableblock"><strong>Inputs</strong></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">user with many persons in the address book</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">sort persons by name</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">locate a person easily</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">command autocomplete suggestions</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">improve my productivity</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">recall commands previously used in session</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">improve my productivity</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="4"><p class="tableblock"><strong>Multi-Currency</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">set my default currency for tracking</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">store expenses in a specific currency</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">track expenses when I travel</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">automatically convert the expense to my local currency</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">track expenses in one currency</p></td>
 </tr>
 </tbody>
 </table>
 <div class="paragraph">
-<p><em>{More to be added}</em></p>
+<p><em>{More may be added}</em></p>
 </div>
 </div>
 </div>
@@ -718,25 +878,60 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <h2 id="use-cases"><a class="link" href="#use-cases">Appendix C: Use Cases</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>(For all use cases below, the <strong>System</strong> is the <code>AddressBook</code> and the <strong>Actor</strong> is the <code>user</code>, unless specified otherwise)</p>
+<p>Note: For all use cases below, the <strong>System</strong> is <code>MyMorise(MM)</code>, the <strong>Actor</strong> is the <code>user</code> and the <strong>Precondition</strong> is <code>MyMorise is running</code>, unless specified otherwise).
+Inputs specified in a square bracket i.e [input] are optional inputs from the user.</p>
 </div>
-<h3 id="use-case-delete-person" class="discrete">Use case: Delete person</h3>
+<div class="sect2">
+<h3 id="_UC01"><a class="link" href="#_UC01">C.1. UC01 - Get Help<br></a></h3>
+<div class="paragraph">
+<p>Guarantees:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The list of all commands will be shown.</p>
+</li>
+</ul>
+</div>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>User requests to list persons</p>
+<p>User requests for help.</p>
 </li>
 <li>
-<p>AddressBook shows a list of persons</p>
+<p>MM responds with the list of all commands.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_UC02"><a class="link" href="#_UC02">C.2. UC02 - Create an expense<br></a></h3>
+<div class="paragraph">
+<p>Guarantees:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>A new expense will be added into MM if valid data were specified.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to add an expense specifying data.</p>
 </li>
 <li>
-<p>User requests to delete a specific person in the list</p>
-</li>
-<li>
-<p>AddressBook deletes the person</p>
+<p>MM creates and stores the expense with the specified data.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -749,17 +944,316 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>2a. The list is empty.</p>
+<p>1a. MM detects an error in entered data.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a1. MM informs the user what data was invalid.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
 </li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_UC03"><a class="link" href="#_UC03">C.3. UC03 - Create a recurring expense<br></a></h3>
+<div class="paragraph">
+<p>Guarantees:</p>
+</div>
+<div class="ulist">
+<ul>
 <li>
-<p>3a. The given index is invalid.</p>
+<p>A new recurring expense with will be added into MM if valid data were specified.</p>
+</li>
+<li>
+<p>A single expense with will be added into MM if valid data were specified.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to add a recurring expense specifying data.</p>
+</li>
+<li>
+<p>MM creates and stores the expense with the specified data .</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>3a1. AddressBook shows an error message.</p>
+<p>1a. MM detects an error in entered data.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a1. MM informs the user what data was invalid.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_UC04"><a class="link" href="#_UC04">C.4. UC04 - Retrieve all expenses<br></a></h3>
+<div class="paragraph">
+<p>Preconditions: MyMorise is running, there is at least 1 expense stored.
+Guarantees:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>A list of all expenses is shown.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to see all expenses.</p>
+</li>
+<li>
+<p>MM shows all expenses.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a. User requests to see all expenses made today.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a1. MM shows a list of all expenses made today.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1b. User requests to see all expenses made for the current week.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1b1. MM shows a list of all expenses made for the current week.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1c. User requests to see all expenses made for the current month.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1c1. MM shows a list of all expenses made for the current month.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1d. User requests to see all expenses made for the specified date range.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1d1. MM shows a list of all expenses made for the the specified date range.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_UC05"><a class="link" href="#_UC05">C.5. UC05 - Retrieve all recurring expenses<br></a></h3>
+<div class="paragraph">
+<p>Preconditions: MyMorise is running, there is at least 1 recurring expense stored.<br>
+Guarantees:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>A list of all recurring expenses is shown.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to see for all recurring expenses.</p>
+</li>
+<li>
+<p>MM shows a list of all expenses made for the day.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_UC06"><a class="link" href="#_UC06">C.6. UC06 - Find an expense<br></a></h3>
+<div class="paragraph">
+<p>Preconditions: MyMorise is running, there is at least 1 recurring expense stored.<br>
+Guarantees:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>A list of all expenses containing the specified keyword if any were found</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests for all expenses containing a keyword.</p>
+</li>
+<li>
+<p>MM shows a list of all expenses containing the keyword.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a. No expenses contain the keyword specified.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a1. MM informs user that no matching expenses were found.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_UC07"><a class="link" href="#_UC07">C.7. UC07 - Update an expense<br></a></h3>
+<div class="paragraph">
+<p>Preconditions: MyMorise is running, there is at least 1 expense stored.<br>
+Guarantees:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The expense selected for editing will be updated with the new data.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User  <a href="#_UC04">requests to see all expenses (UC04).</a></p>
+</li>
+<li>
+<p>User reviews the list of expenses.</p>
+</li>
+<li>
+<p>User requests to update an expense from the list and provides the new data.</p>
+</li>
+<li>
+<p>MM updates the selected expense with the new data.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>2a. User decides not to edit the expense.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>2b. User could not locate the expense to be edited.</p>
+<div class="paragraph">
+<p>Use case resumes at step 1.</p>
+</div>
+</li>
+<li>
+<p>3a. MM detects an error in entered data.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3a1. MM informs the user what data was invalid.</p>
 <div class="paragraph">
 <p>Use case resumes at step 2.</p>
 </div>
@@ -769,8 +1263,545 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </li>
 </ul>
 </div>
+</div>
+<div class="sect2">
+<h3 id="_UC08"><a class="link" href="#_UC08">C.8. UC08 - Delete an expense<br></a></h3>
 <div class="paragraph">
-<p><em>{More to be added}</em></p>
+<p>Preconditions: MyMorise is running, there is at least 1 expense stored.<br>
+Guarantees:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The expense specified for deletion will be deleted.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User <a href="#_UC04">requests to see all expenses (UC04).</a></p>
+</li>
+<li>
+<p>User reviews the list of expenses.</p>
+</li>
+<li>
+<p>User requests to delete the expense with a specific index from the list.</p>
+</li>
+<li>
+<p>MM deletes the expense with the specified index.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>2a. User decides not to delete the expense.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>2b. User could not locate the expense to be deleted.</p>
+<div class="paragraph">
+<p>Use case resumes at step 1.</p>
+</div>
+</li>
+<li>
+<p>3a. MM detects an error in entered data.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3a1. MM informs the user what data was invalid.</p>
+<div class="paragraph">
+<p>Use case resumes at step 2.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_UC09"><a class="link" href="#_UC09">C.9. UC09 - Delete a recurring expense<br></a></h3>
+<div class="paragraph">
+<p>Preconditions: MyMorise is running, there is at least 1 recurring expense stored.<br>
+Guarantees:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The recurring expense specified for deletion will be deleted.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User <a href="#_UC05">requests to see all recurring expenses (UC05)</a></p>
+</li>
+<li>
+<p>User reviews the list of recurring expenses.</p>
+</li>
+<li>
+<p>User requests to delete the recurring expense with a specific index from the list.</p>
+</li>
+<li>
+<p>MM deletes the expense with the specified index.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>2a. User decides not to delete the recurring expense.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+<li>
+<p>3a. MM detects an error in entered data.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3a1. MM informs the user what data was invalid.</p>
+<div class="paragraph">
+<p>Use case resumes at step 2.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_UC10"><a class="link" href="#_UC10">C.10. UC10 - Set a budget for the current month<br></a></h3>
+<div class="paragraph">
+<p>Guarantees:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The budget will be set to the specified amount.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to set the budget, specifying the amount for the month.</p>
+</li>
+<li>
+<p>MM sets the budget of the month.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a. An existing budget has already been set.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a1. MM sets the budget for the month to the newly specified amount.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_UC11"><a class="link" href="#_UC11">C.11. UC11 - Visualize funds left for current month<br></a></h3>
+<div class="paragraph">
+<p>Preconditions: MyMorise is running, <a href="#_UC11">A budget should have been set (UC11)</a><br>
+Guarantees:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Visualization of funds left for current month will be updated.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User <a href="#_UC02">creates an expense (UC02)</a> <strong>OR</strong> User <a href="#_UC07">updates an expense (UC07)</a> <strong>OR</strong> User <a href="#_UC08">deletes an expense (UC08)</a></p>
+</li>
+<li>
+<p>MM updates the visualization of funds left for the month.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_UC12"><a class="link" href="#_UC12">C.12. UC12 - Notify when funds are &lt; 50%<br></a></h3>
+<div class="paragraph">
+<p>Preconditions: MyMorise is running, <a href="#_UC11">A budget should have been set (UC11)</a><br></p>
+</div>
+<div class="paragraph">
+<p>Guarantees:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The user is notified that funds are low, if resulting budget balance is &lt; 50%.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User <a href="#_UC02">adds an expense (UC02)</a></p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a. Resulting budget balance is &lt; 50%</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a1. MM informs the user the new budget balance and that funds are running low.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_UC13"><a class="link" href="#_UC13">C.13. UC13 - Visualize expenditure<br></a></h3>
+<div class="paragraph">
+<p>Guarantees:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Visualisation of expenditure will be shown if there is sufficient data.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User <a href="#_UC04">requests for all expenses</a></p>
+</li>
+<li>
+<p>MM updates visualization based on expenses requested in Step 1.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>2a. There are no expenditures.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>2a1. MM informs User that there is not enough data to visualise expenditure breakdown by tag.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_UC14"><a class="link" href="#_UC14">C.14. UC14 - Visualize expenditure breakdown by tag<br></a></h3>
+<div class="paragraph">
+<p>Guarantees:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Breakdown by tag visualisation will be shown if there is sufficient data.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User <a href="#_UC02">creates an expense (UC02)</a> <strong>OR</strong> User <a href="#_UC07">updates an expense (UC07)</a> <strong>OR</strong> User <a href="#_UC08">deletes an expense (UC08)</a></p>
+</li>
+<li>
+<p>MM updates the breakdown of expenditure by tag visualisation.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>2a. There are no expenditures.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>2a1. MM informs User that there is not enough data to visualise expenditure breakdown by tag.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_UC15"><a class="link" href="#_UC15">C.15. UC15 - Recall commands previously used in current session<br></a></h3>
+<div class="paragraph">
+<p>Guarantees:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Commands used previously can be cycled through by the user if there are previously used commands in the current session.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User request for previous command.</p>
+</li>
+<li>
+<p>Step 1 is repeated till user found the target command.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a. No prior commands entered.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_UC16"><a class="link" href="#_UC16">C.16. UC16 - Set default currency of expenses<br></a></h3>
+<div class="paragraph">
+<p>Guarantees:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>MyMorise will convert display amounts in the specified currency, if the specified currency is valid..</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to set the default currency</p>
+</li>
+<li>
+<p>MM converts all expenses into the defualt currency and updates the display.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a. The specified currency is not valid.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a1. MM informs the user that the currency specified is not valid.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_UC17"><a class="link" href="#_UC17">C.17. UC17 - Create expense with specific currency<br></a></h3>
+<div class="paragraph">
+<p>Guarantees:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>A new expense with the specified currency will be added into MM if the specified data is valid.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to create an expense specifying required data.</p>
+</li>
+<li>
+<p>MM creates and stores the expense with the specified data.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a. MM detects an error in entered data.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a1. MM informs the user what data was invalid.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_UC18"><a class="link" href="#_UC18">C.18. UC18 - Automatically convert expenses in foreign currencies to default currency<br></a></h3>
+<div class="paragraph">
+<p>Preconditions: Preconditions: MyMorise is running, at least 1 expense stored in foreign currency<br></p>
+</div>
+<div class="paragraph">
+<p>Guarantees:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Expense will display expense amount in both default and foreign currencies
+but all computations will default converted amount.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User <a href="#_UC17">creates an expense with specific currency</a></p>
+</li>
+<li>
+<p>User <a href="#_UC05">requests for all expenses</a></p>
+</li>
+<li>
+<p>MM shows list of expenses. Expenses with foreign currencies are shown together with their default currency converted amounts.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><em>{More may be added}</em></p>
+</div>
 </div>
 </div>
 </div>
@@ -780,13 +1811,16 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Should work on any <a href="#mainstream-os">mainstream OS</a> as long as it has Java <code>11</code> or above installed.</p>
+<p>(Technical) Should work on any <a href="#mainstream-os">mainstream OS</a> as long as it has Java <code>11</code> or above installed.</p>
 </li>
 <li>
-<p>Should be able to hold up to 1000 persons without a noticeable sluggishness in performance for typical usage.</p>
+<p>(Capacity, Performance) Should be able to hold up to 10000 expenses without a noticeable sluggishness in performance for typical usage.</p>
 </li>
 <li>
-<p>A user with above average typing speed for regular English text (i.e. not code, not system admin commands) should be able to accomplish most of the tasks faster using commands than using the mouse.</p>
+<p>(Scalability) Should be able to handle expense amounts up to 10<sup>12</sup>.</p>
+</li>
+<li>
+<p>(Process) Project should be production ready by 11th November 2019.</p>
 </li>
 </ol>
 </div>
@@ -803,10 +1837,6 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <dt class="hdlist1"><a id="mainstream-os"></a> Mainstream OS</dt>
 <dd>
 <p>Windows, Linux, Unix, OS-X</p>
-</dd>
-<dt class="hdlist1"><a id="private-contact-detail"></a> Private contact detail</dt>
-<dd>
-<p>A contact detail that is not meant to be shared with others</p>
 </dd>
 </dl>
 </div>
@@ -958,4 +1988,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-08 07:18:18 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-08 18:20:02 UTC</div></div></div></body></html>
