@@ -14,7 +14,8 @@ ifdef::env-github[]
 endif::[]
 :repoURL: https://github.com/AY1920S1-CS2103-T14-4/main
 
-By: `Team 14-4`      Since: `Sep 2019`      Licence: `MIT`
+
+By: `Team T14-4`      Since: `Sep 2019`      Licence: `MIT`
 
 == Setting up
 
@@ -235,11 +236,6 @@ image::CommitActivityDiagram.png[]
 ** Cons: Requires dealing with commands that have already been undone: We must remember to skip these commands. Violates Single Responsibility Principle and Separation of Concerns as `HistoryManager` now needs to do two different things.
 // end::undoredo[]
 
-// tag::dataencryption[]
-=== [Proposed] Data Encryption
-
-_{Explain here how the data encryption feature will be implemented}_
-
 // end::dataencryption[]
 
 === Logging
@@ -364,7 +360,10 @@ _{More may be added}_
 [appendix]
 == Use Cases
 
-Note: For all use cases below, the *System* is `MYMorise(MYM)`, the *Actor* is the `user` and the *Precondition* is `MYMorise is running`, unless specified otherwise).
+
+Note: For all use cases below, the *System* is `MYMorise(MYM)`, the *Actor* is the `user` and the *Precondition* is
+`MyMorise is running`, unless specified otherwise).
+
 Inputs specified in a square bracket i.e [input] are optional inputs from the user.
 
 [none]
@@ -861,7 +860,9 @@ but all computations will default converted amount.
 
 . User <<_UC17,  creates an expense with specific currency>>
 . User <<_UC05, requests for all expenses>>
-. MYM shows list of expenses. Expenses with foreign currencies are shown together with their default currency converted amounts.
+
+. MYM shows list of expenses. Expenses with foreign currencies are shown together with their default currency converted
+amounts.
 +
 Use case ends.
 
