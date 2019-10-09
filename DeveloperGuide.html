@@ -3,7 +3,7 @@
 <link rel="stylesheet" href="stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="seedu-header"><nav class="navbar navbar-lg navbar-light bg-lighter"><div class="container"><a class="navbar-brand" href="https://se-edu.github.io/"><img src="images/SeEduLogo.png" alt="SE-EDU"></a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level1">AB-1</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level2">AB-2</a></li><li class="nav-item"><a class="nav-link active" href="index.html">AB-3</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level4">AB-4</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/learningresources">Resources</a></li></ul></div></nav></div><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="index.html">AddressBook-Level3</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link active" href="DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="LearningOutcomes.html">LOs</a></li><li class="nav-item"><a class="nav-link" href="AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/se-edu/addressbook-level3"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>AddressBook Level 3 - Developer Guide</h1></div><div id="content"><div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>By: <code>Team SE-EDU</code>      Since: <code>Jun 2016</code>      Licence: <code>MIT</code></p>
+<p>By: <code>Team T14-4</code>      Since: <code>Sep 2019</code>      Licence: <code>MIT</code></p>
 </div>
 </div>
 <div id="toc" class="toc">
@@ -23,9 +23,8 @@
 <li><a href="#implementation">3. Implementation</a>
 <ul class="sectlevel2">
 <li><a href="#proposed-undo-redo-feature">3.1. [Proposed] Undo/Redo feature</a></li>
-<li><a href="#proposed-data-encryption">3.2. [Proposed] Data Encryption</a></li>
-<li><a href="#logging">3.3. Logging</a></li>
-<li><a href="#Implementation-Configuration">3.4. Configuration</a></li>
+<li><a href="#logging">3.2. Logging</a></li>
+<li><a href="#Implementation-Configuration">3.3. Configuration</a></li>
 </ul>
 </li>
 <li><a href="#documentation">4. Documentation</a></li>
@@ -565,20 +564,14 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 </div>
 <div class="sect2">
-<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">3.2. [Proposed] Data Encryption</a></h3>
-<div class="paragraph">
-<p><em>{Explain here how the data encryption feature will be implemented}</em></p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">3.3. Logging</a></h3>
+<h3 id="logging"><a class="link" href="#logging">3.2. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.4, &#8220;Configuration&#8221;</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.3, &#8220;Configuration&#8221;</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -609,7 +602,7 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.4. Configuration</a></h3>
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.3. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g user prefs file location, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
@@ -878,7 +871,8 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <h2 id="use-cases"><a class="link" href="#use-cases">Appendix C: Use Cases</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Note: For all use cases below, the <strong>System</strong> is <code>MyMorise(MM)</code>, the <strong>Actor</strong> is the <code>user</code> and the <strong>Precondition</strong> is <code>MyMorise is running</code>, unless specified otherwise).
+<p>Note: For all use cases below, the <strong>System</strong> is <code>MYMorise(MYM)</code>, the <strong>Actor</strong> is the <code>user</code> and the <strong>Precondition</strong> is
+<code>MyMorise is running</code>, unless specified otherwise).
 Inputs specified in a square bracket i.e [input] are optional inputs from the user.</p>
 </div>
 <div class="sect2">
@@ -902,7 +896,7 @@ Inputs specified in a square bracket i.e [input] are optional inputs from the us
 <p>User requests for help.</p>
 </li>
 <li>
-<p>MM responds with the list of all commands.</p>
+<p>MYM responds with the list of all commands.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -918,7 +912,7 @@ Inputs specified in a square bracket i.e [input] are optional inputs from the us
 <div class="ulist">
 <ul>
 <li>
-<p>A new expense will be added into MM if valid data were specified.</p>
+<p>A new expense will be added into MYM if valid data were specified.</p>
 </li>
 </ul>
 </div>
@@ -931,7 +925,7 @@ Inputs specified in a square bracket i.e [input] are optional inputs from the us
 <p>User requests to add an expense specifying data.</p>
 </li>
 <li>
-<p>MM creates and stores the expense with the specified data.</p>
+<p>MYM creates and stores the expense with the specified data.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -944,11 +938,11 @@ Inputs specified in a square bracket i.e [input] are optional inputs from the us
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>1a. MM detects an error in entered data.</p>
+<p>1a. MYM detects an error in entered data.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>1a1. MM informs the user what data was invalid.</p>
+<p>1a1. MYM informs the user what data was invalid.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -967,10 +961,10 @@ Inputs specified in a square bracket i.e [input] are optional inputs from the us
 <div class="ulist">
 <ul>
 <li>
-<p>A new recurring expense with will be added into MM if valid data were specified.</p>
+<p>A new recurring expense with will be added into MYM if valid data were specified.</p>
 </li>
 <li>
-<p>A single expense with will be added into MM if valid data were specified.</p>
+<p>A single expense with will be added into MYM if valid data were specified.</p>
 </li>
 </ul>
 </div>
@@ -983,7 +977,7 @@ Inputs specified in a square bracket i.e [input] are optional inputs from the us
 <p>User requests to add a recurring expense specifying data.</p>
 </li>
 <li>
-<p>MM creates and stores the expense with the specified data .</p>
+<p>MYM creates and stores the expense with the specified data .</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -996,11 +990,11 @@ Inputs specified in a square bracket i.e [input] are optional inputs from the us
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>1a. MM detects an error in entered data.</p>
+<p>1a. MYM detects an error in entered data.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>1a1. MM informs the user what data was invalid.</p>
+<p>1a1. MYM informs the user what data was invalid.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -1033,7 +1027,7 @@ Guarantees:</p>
 <p>User requests to see all expenses.</p>
 </li>
 <li>
-<p>MM shows all expenses.</p>
+<p>MYM shows all expenses.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -1050,7 +1044,7 @@ Guarantees:</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>1a1. MM shows a list of all expenses made today.</p>
+<p>1a1. MYM shows a list of all expenses made today.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -1067,7 +1061,7 @@ Guarantees:</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>1b1. MM shows a list of all expenses made for the current week.</p>
+<p>1b1. MYM shows a list of all expenses made for the current week.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -1084,7 +1078,7 @@ Guarantees:</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>1c1. MM shows a list of all expenses made for the current month.</p>
+<p>1c1. MYM shows a list of all expenses made for the current month.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -1101,7 +1095,7 @@ Guarantees:</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>1d1. MM shows a list of all expenses made for the the specified date range.</p>
+<p>1d1. MYM shows a list of all expenses made for the the specified date range.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -1134,7 +1128,7 @@ Guarantees:</p>
 <p>User requests to see for all recurring expenses.</p>
 </li>
 <li>
-<p>MM shows a list of all expenses made for the day.</p>
+<p>MYM shows a list of all expenses made for the day.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -1164,7 +1158,7 @@ Guarantees:</p>
 <p>User requests for all expenses containing a keyword.</p>
 </li>
 <li>
-<p>MM shows a list of all expenses containing the keyword.</p>
+<p>MYM shows a list of all expenses containing the keyword.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -1181,7 +1175,7 @@ Guarantees:</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>1a1. MM informs user that no matching expenses were found.</p>
+<p>1a1. MYM informs user that no matching expenses were found.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -1220,7 +1214,7 @@ Guarantees:</p>
 <p>User requests to update an expense from the list and provides the new data.</p>
 </li>
 <li>
-<p>MM updates the selected expense with the new data.</p>
+<p>MYM updates the selected expense with the new data.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -1249,11 +1243,11 @@ Guarantees:</p>
 </div>
 </li>
 <li>
-<p>3a. MM detects an error in entered data.</p>
+<p>3a. MYM detects an error in entered data.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>3a1. MM informs the user what data was invalid.</p>
+<p>3a1. MYM informs the user what data was invalid.</p>
 <div class="paragraph">
 <p>Use case resumes at step 2.</p>
 </div>
@@ -1292,7 +1286,7 @@ Guarantees:</p>
 <p>User requests to delete the expense with a specific index from the list.</p>
 </li>
 <li>
-<p>MM deletes the expense with the specified index.</p>
+<p>MYM deletes the expense with the specified index.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -1321,11 +1315,11 @@ Guarantees:</p>
 </div>
 </li>
 <li>
-<p>3a. MM detects an error in entered data.</p>
+<p>3a. MYM detects an error in entered data.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>3a1. MM informs the user what data was invalid.</p>
+<p>3a1. MYM informs the user what data was invalid.</p>
 <div class="paragraph">
 <p>Use case resumes at step 2.</p>
 </div>
@@ -1364,7 +1358,7 @@ Guarantees:</p>
 <p>User requests to delete the recurring expense with a specific index from the list.</p>
 </li>
 <li>
-<p>MM deletes the expense with the specified index.</p>
+<p>MYM deletes the expense with the specified index.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -1383,11 +1377,11 @@ Guarantees:</p>
 </div>
 </li>
 <li>
-<p>3a. MM detects an error in entered data.</p>
+<p>3a. MYM detects an error in entered data.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>3a1. MM informs the user what data was invalid.</p>
+<p>3a1. MYM informs the user what data was invalid.</p>
 <div class="paragraph">
 <p>Use case resumes at step 2.</p>
 </div>
@@ -1419,7 +1413,7 @@ Guarantees:</p>
 <p>User requests to set the budget, specifying the amount for the month.</p>
 </li>
 <li>
-<p>MM sets the budget of the month.</p>
+<p>MYM sets the budget of the month.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -1436,7 +1430,7 @@ Guarantees:</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>1a1. MM sets the budget for the month to the newly specified amount.</p>
+<p>1a1. MYM sets the budget for the month to the newly specified amount.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -1469,7 +1463,7 @@ Guarantees:</p>
 <p>User <a href="#_UC02">creates an expense (UC02)</a> <strong>OR</strong> User <a href="#_UC07">updates an expense (UC07)</a> <strong>OR</strong> User <a href="#_UC08">deletes an expense (UC08)</a></p>
 </li>
 <li>
-<p>MM updates the visualization of funds left for the month.</p>
+<p>MYM updates the visualization of funds left for the month.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -1515,7 +1509,7 @@ Guarantees:</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>1a1. MM informs the user the new budget balance and that funds are running low.</p>
+<p>1a1. MYM informs the user the new budget balance and that funds are running low.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -1547,7 +1541,7 @@ Guarantees:</p>
 <p>User <a href="#_UC04">requests for all expenses</a></p>
 </li>
 <li>
-<p>MM updates visualization based on expenses requested in Step 1.</p>
+<p>MYM updates visualization based on expenses requested in Step 1.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -1564,7 +1558,7 @@ Guarantees:</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>2a1. MM informs User that there is not enough data to visualise expenditure breakdown by tag.</p>
+<p>2a1. MYM informs User that there is not enough data to visualise expenditure breakdown by tag.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -1596,7 +1590,7 @@ Guarantees:</p>
 <p>User <a href="#_UC02">creates an expense (UC02)</a> <strong>OR</strong> User <a href="#_UC07">updates an expense (UC07)</a> <strong>OR</strong> User <a href="#_UC08">deletes an expense (UC08)</a></p>
 </li>
 <li>
-<p>MM updates the breakdown of expenditure by tag visualisation.</p>
+<p>MYM updates the breakdown of expenditure by tag visualisation.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -1613,7 +1607,7 @@ Guarantees:</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>2a1. MM informs User that there is not enough data to visualise expenditure breakdown by tag.</p>
+<p>2a1. MYM informs User that there is not enough data to visualise expenditure breakdown by tag.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -1687,7 +1681,7 @@ Guarantees:</p>
 <p>User requests to set the default currency</p>
 </li>
 <li>
-<p>MM converts all expenses into the defualt currency and updates the display.</p>
+<p>MYM converts all expenses into the defualt currency and updates the display.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -1704,7 +1698,7 @@ Guarantees:</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>1a1. MM informs the user that the currency specified is not valid.</p>
+<p>1a1. MYM informs the user that the currency specified is not valid.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -1723,7 +1717,7 @@ Guarantees:</p>
 <div class="ulist">
 <ul>
 <li>
-<p>A new expense with the specified currency will be added into MM if the specified data is valid.</p>
+<p>A new expense with the specified currency will be added into MYM if the specified data is valid.</p>
 </li>
 </ul>
 </div>
@@ -1736,7 +1730,7 @@ Guarantees:</p>
 <p>User requests to create an expense specifying required data.</p>
 </li>
 <li>
-<p>MM creates and stores the expense with the specified data.</p>
+<p>MYM creates and stores the expense with the specified data.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -1749,11 +1743,11 @@ Guarantees:</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>1a. MM detects an error in entered data.</p>
+<p>1a. MYM detects an error in entered data.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>1a1. MM informs the user what data was invalid.</p>
+<p>1a1. MYM informs the user what data was invalid.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -1792,7 +1786,8 @@ but all computations will default converted amount.</p>
 <p>User <a href="#_UC05">requests for all expenses</a></p>
 </li>
 <li>
-<p>MM shows list of expenses. Expenses with foreign currencies are shown together with their default currency converted amounts.</p>
+<p>MYM shows list of expenses. Expenses with foreign currencies are shown together with their default currency converted
+amounts.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -1988,4 +1983,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-09 11:12:17 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-09 14:26:21 UTC</div></div></div></body></html>
