@@ -14,16 +14,16 @@
 <li><a href="#Features">3. Features</a>
 <ul class="sectlevel2">
 <li><a href="#viewing-help-code-help-code">3.1. Viewing help : <code>help</code></a></li>
-<li><a href="#adding-a-expense-code-add-code">3.2. Adding a expense: <code>add</code></a></li>
+<li><a href="#adding-an-expense-code-add-code">3.2. Adding an expense: <code>add</code></a></li>
 <li><a href="#listing-all-expenses-code-list-code">3.3. Listing all expenses : <code>list</code></a></li>
 <li><a href="#viewing-expenses-in-a-period-code-view-code">3.4. Viewing expenses in a period : <code>view</code></a></li>
-<li><a href="#editing-a-expense-code-edit-code">3.5. Editing a expense : <code>edit</code></a></li>
-<li><a href="#locating-persons-by-name-code-find-code">3.6. Locating persons by name: <code>find</code></a></li>
-<li><a href="#deleting-a-expense-code-delete-code">3.7. Deleting a expense : <code>delete</code></a></li>
+<li><a href="#editing-an-expense-code-edit-code">3.5. Editing an expense : <code>edit</code></a></li>
+<li><a href="#locating-expenses-by-name-code-find-code">3.6. Locating expenses by name: <code>find</code></a></li>
+<li><a href="#deleting-an-expense-code-delete-code">3.7. Deleting an expense : <code>delete</code></a></li>
 <li><a href="#exiting-the-program-code-exit-code">3.8. Exiting the program : <code>exit</code></a></li>
-<li><a href="#saving-the-data">3.9. Saving the data</a></li>
-<li><a href="#display-expense-by-tag-in-chart-code-coming-in-v2-0-code">3.10. Display expense by tag in chart <code>[coming in v2.0]</code></a></li>
-<li><a href="#set-a-budget-for-a-specific-month-code-coming-in-v2-0-code">3.11. Set a budget for a specific month <code>[coming in v2.0]</code></a></li>
+<li><a href="#saving-data">3.9. Saving data</a></li>
+<li><a href="#set-a-budget-for-a-period-code-budget-code">3.10. Set a budget for a period : <code>budget</code></a></li>
+<li><a href="#display-expense-by-tag-in-chart-code-coming-in-v2-0-code">3.11. Display expense by tag in chart <code>[coming in v2.0]</code></a></li>
 <li><a href="#set-a-recurring-expense-code-coming-in-v2-0-code">3.12. Set a Recurring Expense <code>[coming in v2.0]</code></a></li>
 <li><a href="#convert-expenses-to-a-specific-currency-code-coming-in-v2-0-code">3.13. Convert expenses to a specific currency <code>[coming in v2.0]</code></a></li>
 <li><a href="#undo-redo-commands-code-coming-in-v2-0-code">3.14. Undo/Redo commands <code>[coming in v2.0]</code></a></li>
@@ -83,7 +83,7 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <p><strong><code>list</code></strong> : lists all expenses</p>
 </li>
 <li>
-<p><strong><code>add</code></strong><code>add /n Textbook /a 23.50 /t education /t school</code> : adds an expense named <code>Textbook</code> to MyMorise with the tags <code>education</code> and <code>school</code>.</p>
+<p><strong><code>add</code></strong><code>add /n Textbook /a 23.50 /t education /t school</code> : adds an expense named <code>Textbook</code> to MYMorise with the tags <code>education</code> and <code>school</code>.</p>
 </li>
 <li>
 <p><strong><code>delete</code></strong><code>3</code> : deletes the 3rd expense shown in the current list</p>
@@ -132,7 +132,7 @@ Format: <code>help</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="adding-a-expense-code-add-code"><a class="link" href="#adding-a-expense-code-add-code">3.2. Adding a expense: <code>add</code></a></h3>
+<h3 id="adding-an-expense-code-add-code"><a class="link" href="#adding-an-expense-code-add-code">3.2. Adding an expense: <code>add</code></a></h3>
 <div class="paragraph">
 <p>Adds an expense to track.<br>
 Format: <code>add /n NAME /a AMOUNT [/t TAG]…​</code></p>
@@ -166,7 +166,7 @@ An expense can have any number of tags (including no tags)
 <div class="sect2">
 <h3 id="listing-all-expenses-code-list-code"><a class="link" href="#listing-all-expenses-code-list-code">3.3. Listing all expenses : <code>list</code></a></h3>
 <div class="paragraph">
-<p>Shows a list of all expenses with optional matching criterion in MyMorise.<br>
+<p>Shows a list of all expenses with optional matching criterion in MYMorise.<br>
 Format: <code>list</code></p>
 </div>
 </div>
@@ -178,7 +178,7 @@ Format: <code>view</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="editing-a-expense-code-edit-code"><a class="link" href="#editing-a-expense-code-edit-code">3.5. Editing a expense : <code>edit</code></a></h3>
+<h3 id="editing-an-expense-code-edit-code"><a class="link" href="#editing-an-expense-code-edit-code">3.5. Editing an expense : <code>edit</code></a></h3>
 <div class="paragraph">
 <p>Edits an existing person in the address book.<br>
 Format: <code>edit INDEX [/n NAME] [/a AMOUNT] [/t TAG]…</code></p>
@@ -188,7 +188,7 @@ Format: <code>edit INDEX [/n NAME] [/a AMOUNT] [/t TAG]…</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p>Edits the expense at the specified <code>INDEX</code>. The index refers to the index number shown in the displayed expense list. The index <strong>must be a positive integer</strong> 1, 2, 3, …​ The index is relative to what is displayed on the GUI rather than the actual index of the expense in MyMorise.</p>
+<p>Edits the expense at the specified <code>INDEX</code>. The index refers to the index number shown in the displayed expense list. The index <strong>must be a positive integer</strong> 1, 2, 3, …​ The index is relative to what is displayed on the GUI rather than the actual index of the expense in MYMorise.</p>
 </li>
 <li>
 <p>At least one of the optional fields must be provided.</p>
@@ -223,7 +223,7 @@ Replaces the name of the 2nd expense to <code>Poets Coffee</code> and clears all
 </div>
 </div>
 <div class="sect2">
-<h3 id="locating-persons-by-name-code-find-code"><a class="link" href="#locating-persons-by-name-code-find-code">3.6. Locating persons by name: <code>find</code></a></h3>
+<h3 id="locating-expenses-by-name-code-find-code"><a class="link" href="#locating-expenses-by-name-code-find-code">3.6. Locating expenses by name: <code>find</code></a></h3>
 <div class="paragraph">
 <p>Finds all expenses by name, date, tag.<br>
 Format: <code>find [/n NAME] [/d DATE] [/t TAG]</code></p>
@@ -268,9 +268,9 @@ Returns any expense having names <code>Cheesecake</code>, eg: <code>Strawberry C
 </div>
 </div>
 <div class="sect2">
-<h3 id="deleting-a-expense-code-delete-code"><a class="link" href="#deleting-a-expense-code-delete-code">3.7. Deleting a expense : <code>delete</code></a></h3>
+<h3 id="deleting-an-expense-code-delete-code"><a class="link" href="#deleting-an-expense-code-delete-code">3.7. Deleting an expense : <code>delete</code></a></h3>
 <div class="paragraph">
-<p>Deletes the specified expense from MyMorise.<br>
+<p>Deletes the specified expense from MYMorise.<br>
 Format: <code>delete INDEX</code></p>
 </div>
 <div class="sidebarblock">
@@ -299,7 +299,7 @@ The index is relative to what is displayed on the GUI rather than the actual ind
 <li>
 <p><code>list</code><br>
 <code>delete 2</code><br>
-Deletes the 2nd expense in MyMorise.</p>
+Deletes the 2nd expense in MYMorise.</p>
 </li>
 <li>
 <p><code>find Coffee</code><br>
@@ -317,22 +317,59 @@ Format: <code>exit</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.9. Saving the data</a></h3>
+<h3 id="saving-data"><a class="link" href="#saving-data">3.9. Saving data</a></h3>
 <div class="paragraph">
 <p>Expense data are saved in the hard disk automatically after any command that changes the data.
 There is no need to save manually.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="display-expense-by-tag-in-chart-code-coming-in-v2-0-code"><a class="link" href="#display-expense-by-tag-in-chart-code-coming-in-v2-0-code">3.10. Display expense by tag in chart <code>[coming in v2.0]</code></a></h3>
+<h3 id="set-a-budget-for-a-period-code-budget-code"><a class="link" href="#set-a-budget-for-a-period-code-budget-code">3.10. Set a budget for a period : <code>budget</code></a></h3>
 <div class="paragraph">
-<p>{Displays the expense in a pie chart to show breakdown of expenses.}</p>
+<p>Specifies a budget for a specific period.<br>
+Format: <code>budget /d PERIOD /a AMOUNT</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Sets a budget for the specified PERIOD. All expenses made in the month will deduct its amount from the budget to indicate how much funds are available to spend</p>
+</li>
+<li>
+<p>The Period refers to a specific date, month or period between two dates.</p>
+</li>
+<li>
+<p>The Amount refers to amount set for specified period.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>budget /d 9-10-19 /a SGD400</code><br>
+Sets a budget of SGD400 for Wed, 9th Oct 19.</p>
+</li>
+<li>
+<p><code>budget /d Jan-19 /a SGD200</code><br>
+Sets a budget of SGD200 for the month of January 19.</p>
+</li>
+<li>
+<p><code>budget /d 14-10-19 - 13-11-19 /a SGD500</code><br>
+Sets a budget of SGD500 for the period from Mon, 14th Oct 19 to Wed, 13th Nov 19.</p>
+</li>
+</ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="set-a-budget-for-a-specific-month-code-coming-in-v2-0-code"><a class="link" href="#set-a-budget-for-a-specific-month-code-coming-in-v2-0-code">3.11. Set a budget for a specific month <code>[coming in v2.0]</code></a></h3>
+<h3 id="display-expense-by-tag-in-chart-code-coming-in-v2-0-code"><a class="link" href="#display-expense-by-tag-in-chart-code-coming-in-v2-0-code">3.11. Display expense by tag in chart <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
-<p>{Sets a budget for a specific month. All expenses made in the month will deduct its amount from the budget to indicate how much funds are available to spend}</p>
+<p>{Displays the expense in a pie chart to show breakdown of expenses.}</p>
 </div>
 </div>
 <div class="sect2">
@@ -369,7 +406,7 @@ There is no need to save manually.</p>
 <h3 id="faq"><a class="link" href="#faq">3.17. FAQ</a></h3>
 <div class="paragraph">
 <p><strong>Q</strong>: How do I transfer my data to another Computer?<br>
-<strong>A</strong>: Run the app in the other computer and overwrite the empty data file it creates with the file that contains the data from your MyMorise/data folder.</p>
+<strong>A</strong>: Run the app in the other computer and overwrite the empty data file it creates with the file that contains the data from your MYMorise/data folder.</p>
 </div>
 </div>
 </div>
@@ -408,4 +445,4 @@ e.g. <code>delete 3</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-09 14:26:21 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-09 14:41:23 UTC</div></div></div></body></html>
