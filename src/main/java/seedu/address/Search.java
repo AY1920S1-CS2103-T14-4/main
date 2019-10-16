@@ -1,8 +1,6 @@
 package seedu.address;
 
 import java.util.Comparator;
-import java.util.function.IntFunction;
-import java.util.function.Predicate;
 
 /**
  * Utility class that provides methods for finding the first and the last keys using binary search algorithm.
@@ -114,45 +112,4 @@ public class Search {
         }
         return -1;
     }
-
-//    /**
-//     * Return the index of given key in a[]
-//     *
-//     * @param a                   - the array of keys to be searched
-//     * @param key                 -  the value to be searched for
-//     * @param comparator          - the comparator by which array is ordered
-//     * @param eqTest              - predicate of integer to check if matched
-//     * @param eqLowChangeFunction - the function to apply to the temp value
-//     * @return - the index of given key in a[] that equals the search key, -1 if not found
-//     */
-//    private static <T> int indexOf(T[] a,
-//                                   T key,
-//                                   Comparator<T> comparator,
-//                                   Predicate<Integer> eqTest,
-//                                   IntFunction<Integer> eqLowChangeFunction) {
-//        // null checks
-//
-//        if (a.length == 0) {
-//            return -1;
-//        }
-//
-//        int lo = 0;
-//        int hi = a.length;
-//
-//        while (lo <= hi) {
-//            int mid = lo + (hi - lo) / 2;
-//            int cmp = comparator.compare(a[mid], key);
-//
-//            if (cmp >= 1) {
-//                hi = mid - 1;
-//            } else if (cmp <= -1) {
-//                lo = mid + 1;
-//            } else if (eqTest.test(mid)) {
-//                lo = eqLowChangeFunction.apply(mid);
-//            } else {
-//                return mid;
-//            }
-//        }
-//        return -1;
-//    }
 }
