@@ -43,7 +43,7 @@
 <li><a href="#_UC07">C.7. UC07 - Update an expense<br></a></li>
 <li><a href="#_UC08">C.8. UC08 - Delete an expense<br></a></li>
 <li><a href="#_UC09">C.9. UC09 - Delete a recurring expense<br></a></li>
-<li><a href="#_UC10">C.10. UC10 - Set a budget for the current month<br></a></li>
+<li><a href="#_UC10">C.10. UC10 - Set a budget for a specific period<br></a></li>
 <li><a href="#_UC11">C.11. UC11 - Visualize funds left for current month<br></a></li>
 <li><a href="#_UC12">C.12. UC12 - Notify when funds are &lt; 50%<br></a></li>
 <li><a href="#_UC13">C.13. UC13 - Visualize expenditure<br></a></li>
@@ -60,7 +60,7 @@
 <li><a href="#instructions-for-manual-testing">Appendix G: Instructions for Manual Testing</a>
 <ul class="sectlevel2">
 <li><a href="#launch-and-shutdown">G.1. Launch and Shutdown</a></li>
-<li><a href="#deleting-a-person">G.2. Deleting a person</a></li>
+<li><a href="#deleting-an-expense">G.2. Deleting an expense</a></li>
 <li><a href="#saving-data">G.3. Saving data</a></li>
 </ul>
 </li>
@@ -193,7 +193,7 @@ The following class plays an important role at the architecture level:</p>
 <p><strong>API</strong> : <a href="https://github.com/AY1920S1-CS2103-T14-4/main/blob/master/src/main/java/seedu/address/ui/Ui.java"><code>Ui.java</code></a></p>
 </div>
 <div class="paragraph">
-<p>The UI consists of a <code>MainWindow</code> that is made up of parts e.g.<code>CommandBox</code>, <code>ResultDisplay</code>, <code>PersonListPanel</code>, <code>StatusBarFooter</code> etc. All these, including the <code>MainWindow</code>, inherit from the abstract <code>UiPart</code> class.</p>
+<p>The UI consists of a <code>MainWindow</code> that is made up of parts e.g.<code>CommandBox</code>, <code>ResultDisplay</code>, <code>ExpenseListPanel</code>, <code>StatusBarFooter</code> etc. All these, including the <code>MainWindow</code>, inherit from the abstract <code>UiPart</code> class.</p>
 </div>
 <div class="paragraph">
 <p>The <code>UI</code> component uses JavaFx UI framework. The layout of these UI parts are defined in matching <code>.fxml</code> files that are in the <code>src/main/resources/view</code> folder. For example, the layout of the <a href="https://github.com/AY1920S1-CS2103-T14-4/main/blob/master/src/main/java/seedu/address/ui/MainWindow.java"><code>MainWindow</code></a> is specified in <a href="https://github.com/AY1920S1-CS2103-T14-4/main/blob/master/src/main/resources/view/MainWindow.fxml"><code>MainWindow.fxml</code></a></p>
@@ -227,13 +227,13 @@ The following class plays an important role at the architecture level:</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p><code>Logic</code> uses the <code>AddressBookParser</code> class to parse the user command.</p>
+<p><code>Logic</code> uses the <code>MymParser</code> class to parse the user command.</p>
 </li>
 <li>
 <p>This results in a <code>Command</code> object which is executed by the <code>LogicManager</code>.</p>
 </li>
 <li>
-<p>The command execution can affect the <code>Model</code> (e.g. adding a person).</p>
+<p>The command execution can affect the <code>Model</code> (e.g. adding an expense).</p>
 </li>
 <li>
 <p>The result of the command execution is encapsulated as a <code>CommandResult</code> object which is passed back to the <code>Ui</code>.</p>
@@ -285,10 +285,10 @@ The lifeline for <code>DeleteCommandParser</code> should end at the destroy mark
 <p>stores a <code>UserPref</code> object that represents the user&#8217;s preferences.</p>
 </li>
 <li>
-<p>stores the Address Book data.</p>
+<p>stores the MYMorise data.</p>
 </li>
 <li>
-<p>exposes an unmodifiable <code>ObservableList&lt;Person&gt;</code> that can be 'observed' e.g. the UI can be bound to this list so that the UI automatically updates when the data in the list change.</p>
+<p>exposes an unmodifiable <code>ObservableList&lt;Expense&gt;</code> and an unmodifiable <code>ObservableList&lt;Budget&gt;</code> that can be 'observed' e.g. the UI can be bound to either list so that the UI automatically updates when the data in the list change.</p>
 </li>
 <li>
 <p>does not depend on any of the other three components.</p>
@@ -330,7 +330,7 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>Address Book<
 <p>can save <code>UserPref</code> objects in json format and read it back.</p>
 </li>
 <li>
-<p>can save the Address Book data in json format and read it back.</p>
+<p>can save the MYMorise data in json format and read it back.</p>
 </li>
 </ul>
 </div>
@@ -664,10 +664,7 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <p>manage expenses faster than a typical mouse/GUI driven app.</p>
 </li>
 <li>
-<p>easily view metrics of spending.</p>
-</li>
-<li>
-<p>easily identify spending behaviour and tweak to meet budgeting goals.</p>
+<p>easily view spending metrics.</p>
 </li>
 </ul>
 </div>
@@ -707,56 +704,26 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">create a plain old expense</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">create an expense</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">create an expense with a tag</p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">create a recurring expense</p></td>
-<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">identify my expenses by tags</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">retrieve all expenses</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">review all my spending</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">review my spending</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">retrieve all expenses for today</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">review my spending for the day</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">retrieve list of all recurring expenses</p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">retrieve all expenses for the week</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">review my spending for the week</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">retrieve all expenses for the month</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">review my spending for the month</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">retrieve all expenses for the year</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">review my spending for the year</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
@@ -783,25 +750,55 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">`* * `</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">create a recurring expense</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">don&#8217;t have to input recurring expenses every time</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">retrieve list of all recurring expenses</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">view all my recurring expenses</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">retrieve all expenses for the week</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">review my spending for the week</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">retrieve all expenses for the month</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">review my spending for the month</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">retrieve all expenses for the year</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">review my spending for the year</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top" colspan="4"><p class="tableblock"><strong>Budgeting</strong></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">set a budget for the month</p></td>
-<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">set a budget for a period</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">track my expenses according to the budget amount</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">check how much of my budget is left</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">know how much I can spend</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">view a budget</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">know my expenses and how much I have left to spend in the budget</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">notified every time I add an expense if I have less than 50% of my budget left</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">know how much I can spend</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">be notified every time I add an expense if I have less than 50% of my budget left</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">notify myself that i may be spending too much according to my budget</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" colspan="4"><p class="tableblock"><strong>UI</strong></p></td>
@@ -810,13 +807,13 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">view in a pie chart expenditure breakdown by tag</p></td>
-<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">view my expenses easily with visual aid</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">view in a pie chart how much of my budget is spent/available for the current month</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">manage my spending</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">view how much of my budget is left</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
@@ -828,22 +825,22 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <td class="tableblock halign-left valign-top" colspan="4"><p class="tableblock"><strong>Inputs</strong></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">command autocomplete suggestions</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">improve my productivity</p></td>
-</tr>
-<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">recall commands previously used in session</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">improve my productivity</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">command autocomplete suggestions</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">improve my productivity</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top" colspan="4"><p class="tableblock"><strong>Multi-Currency</strong></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">set my default currency for tracking</p></td>
 <td class="tableblock halign-left valign-top"></td>
@@ -852,13 +849,13 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">store expenses in a specific currency</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">track expenses when I travel</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">track expenses in a different currency</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">automatically convert the expense to my local currency</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">track expenses in one currency</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">automatically convert the expense to my default currency</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">track expenses of different currency in terms of my default currency</p></td>
 </tr>
 </tbody>
 </table>
@@ -872,7 +869,7 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <div class="sectionbody">
 <div class="paragraph">
 <p>Note: For all use cases below, the <strong>System</strong> is <code>MYMorise(MYM)</code>, the <strong>Actor</strong> is the <code>user</code> and the <strong>Precondition</strong> is
-<code>MyMorise is running</code>, unless specified otherwise).</p>
+<code>MYMorise is running</code>, unless specified otherwise).</p>
 </div>
 <div class="paragraph">
 <p>Inputs specified in a square bracket i.e [input] are optional inputs from the user.</p>
@@ -1395,14 +1392,14 @@ Guarantees:</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_UC10"><a class="link" href="#_UC10">C.10. UC10 - Set a budget for the current month<br></a></h3>
+<h3 id="_UC10"><a class="link" href="#_UC10">C.10. UC10 - Set a budget for a specific period<br></a></h3>
 <div class="paragraph">
 <p>Guarantees:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The budget will be set to the specified amount.</p>
+<p>The budget will be set to a specified amount for a specific period.</p>
 </li>
 </ul>
 </div>
@@ -1412,10 +1409,10 @@ Guarantees:</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>User requests to set the budget, specifying the amount for the month.</p>
+<p>User requests to set the budget, specifying the amount, the start date and the end date of the period.</p>
 </li>
 <li>
-<p>MYM sets the budget of the month.</p>
+<p>MYM sets the budget for the amount and period specified.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -1428,14 +1425,39 @@ Guarantees:</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>1a. An existing budget has already been set.</p>
+<p>1a. MYM detects an error in the entered data.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>1a1. MYM sets the budget for the month to the newly specified amount.</p>
-<div class="paragraph">
-<p>Use case ends.</p>
+<p>1a1. MYM requests for the correct data.</p>
+</li>
+<li>
+<p>1a2. User enters new data.</p>
+</li>
+<li>
+<p>Steps 1a1-1a2 are repeated until the data are correct.</p>
+</li>
+<li>
+<p>Use case resumes from step 2.</p>
+</li>
+</ul>
 </div>
+</li>
+<li>
+<p>1b. MYM detects a budget period clash.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1b1. MYM requests for different period dates.</p>
+</li>
+<li>
+<p>1b2. User enters new data.</p>
+</li>
+<li>
+<p>Steps 1b1-1b2 are repeated until the dates do not clash with existing budget periods.</p>
+</li>
+<li>
+<p>Use case resumes from step 2.</p>
 </li>
 </ul>
 </div>
@@ -1933,23 +1955,23 @@ Expected: The most recent window size and location is retained.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="deleting-a-person"><a class="link" href="#deleting-a-person">G.2. Deleting a person</a></h3>
+<h3 id="deleting-an-expense"><a class="link" href="#deleting-an-expense">G.2. Deleting an expense</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Deleting a person while all persons are listed</p>
+<p>Deleting an expense while all expenses are listed</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>Prerequisites: List all persons using the <code>list</code> command. Multiple persons in the list.</p>
+<p>Prerequisites: List all expenses using the <code>list</code> command. Multiple expenses in the list.</p>
 </li>
 <li>
 <p>Test case: <code>delete 1</code><br>
-Expected: First contact is deleted from the list. Details of the deleted contact shown in the status message. Timestamp in the status bar is updated.</p>
+Expected: First expense is deleted from the list. Details of the deleted expense shown in the status message. Timestamp in the status bar is updated.</p>
 </li>
 <li>
 <p>Test case: <code>delete 0</code><br>
-Expected: No person is deleted. Error details shown in the status message. Status bar remains the same.</p>
+Expected: No expense is deleted. Error details shown in the status message. Status bar remains the same.</p>
 </li>
 <li>
 <p>Other incorrect delete commands to try: <code>delete</code>, <code>delete x</code> (where x is larger than the list size) <em>{give more}</em><br>
@@ -1985,4 +2007,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-23 14:14:26 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-23 14:47:58 UTC</div></div></div></body></html>
