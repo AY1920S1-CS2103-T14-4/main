@@ -24,7 +24,7 @@
 <li><a href="#locating-expenses-by-name-code-find-code">3.9. Locating expenses by name: <code>find</code></a></li>
 <li><a href="#deleting-an-item-code-delete-code">3.10. Deleting an item : <code>delete</code></a></li>
 <li><a href="#setting-a-default-currency-for-mymorise">3.11. Setting a default currency for MYMorise</a></li>
-<li><a href="#convert-butgets-or-expenses-to-a-different-currency">3.12. Convert butgets or expenses to a different currency</a></li>
+<li><a href="#convert-budgets-or-expenses-to-a-different-currency">3.12. Convert budgets or expenses to a different currency</a></li>
 <li><a href="#autocomplete">3.13. Autocomplete</a></li>
 <li><a href="#exiting-the-program-code-exit-code">3.14. Exiting the program : <code>exit</code></a></li>
 <li><a href="#saving-data">3.15. Saving data</a></li>
@@ -43,12 +43,10 @@
 <h2 id="introduction"><a class="link" href="#introduction">1. Introduction</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>MYMorise&#8201;&#8212;&#8201;Manage Your Money is a desktop application for those who <strong>prefer tracking personal expenses on his
-computer</strong>.
-More importantly, MYMorise is <strong>optimized for those
-who prefer to work with a Command Line Interface (CLI)</strong> while still having the benefits of a Graphical User Interface
-(GUI). If you can type fast, PEM can get your contact management tasks done faster than traditional GUI apps.
-Interested? Jump to the <a href="#quick-start">Section 2, &#8220;Quick Start&#8221;</a> to get started. Enjoy!</p>
+<p>MYMorise&#8201;&#8212;&#8201;Manage Your Money(MYM) is a desktop application for those who <strong>prefer tracking personal expenses on their
+computers</strong>. With MYMorise, you can easily see your daily expenses as well as a summary, along with other useful
+functionalities. More importantly, MYMorise is <strong>optimized for those who prefer to work with Command Line Interface (CLI)</strong> while still having the benefits of a <strong>Graphical User Interface
+(GUI)</strong>. Interested? Jump to the <a href="#quick-start">Section 2, &#8220;Quick Start&#8221;</a> to get started. Enjoy!</p>
 </div>
 </div>
 </div>
@@ -64,10 +62,10 @@ Interested? Jump to the <a href="#quick-start">Section 2, &#8220;Quick Start&#82
 <p>Download the latest <code>MYMorise.jar</code>.</p>
 </li>
 <li>
-<p>Copy the file to the folder you want to use as the home folder for your MYMorise.</p>
+<p>Copy the jar file to the folder you want to use as the home folder for MYMorise.</p>
 </li>
 <li>
-<p>Double-click the file to start the app. The GUI should appear in a few seconds.</p>
+<p>Double-click the jar to start the app. The GUI should appear in a few seconds.</p>
 <div class="imageblock">
 <div class="content">
 <img src="images/Ui.png" alt="Ui" width="790">
@@ -86,7 +84,8 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <p><strong><code>list</code></strong> : lists all expenses</p>
 </li>
 <li>
-<p><strong><code>add</code></strong><code>n/Textbook a/23.50 t/education t/school</code> : adds an expense named <code>Textbook</code> to MYMorise with the tags <code>education</code> and <code>school</code>.</p>
+<p><strong><code>add</code></strong><code>n/Textbook a/23.50 t/education t/school</code> : adds an expense named <code>Textbook</code> to expenselist with the tags
+<code>education</code> and <code>school</code>.</p>
 </li>
 <li>
 <p><strong><code>delete</code></strong><code>3</code> : deletes the 3rd expense shown in the current list</p>
@@ -137,14 +136,14 @@ Format: <code>help</code></p>
 <div class="sect2">
 <h3 id="listing-all-expenses-in-the-default-expense-list-code-list-code"><a class="link" href="#listing-all-expenses-in-the-default-expense-list-code-list-code">3.2. Listing all expenses in the default expense list : <code>list</code></a></h3>
 <div class="paragraph">
-<p>Shows a list of all expenses that do not fall into any budgets in MYMorise.<br>
+<p>Shows a list of all expenses that do not fall into any budgets in expenseList.<br>
 Format: <code>list</code></p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="listing-all-budgets-in-the-budget-list-code-listbudgets-code"><a class="link" href="#listing-all-budgets-in-the-budget-list-code-listbudgets-code">3.3. Listing all budgets in the budget list : <code>listbudgets</code></a></h3>
 <div class="paragraph">
-<p>Shows a list of all budgets in MYMorise.<br>
+<p>Shows a list of all budgets.<br>
 Format: <code>listbudgets</code></p>
 </div>
 </div>
@@ -278,7 +277,9 @@ Format: <code>edit INDEX [n/NAME] [a/AMOUNT] [c/CURRENCY] [t/TAG]…</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p>Edits the expense at the specified <code>INDEX</code>. The index refers to the index number shown in the displayed expense list. The index <strong>must be a positive integer</strong> 1, 2, 3, …​ The index is relative to what is displayed on the GUI rather than the actual index of the expense in MYMorise.</p>
+<p>Edits the expense at the specified <code>INDEX</code>. The index refers to the index number shown in the displayed expense
+list. The index <strong>must be a positive integer</strong> 1, 2, 3, …​ The index is relative to what is displayed on the GUI rather
+than the actual index of the expense in expenseList.</p>
 </li>
 <li>
 <p>At least one of the optional fields must be provided.</p>
@@ -367,7 +368,7 @@ Format: <code>find [n/NAME] [d/DATE] [t/TAG]</code></p>
 <p>Search by name and tag is case insensitive. e.g hans will match Hans</p>
 </li>
 <li>
-<p>Search by date must use the date format <code>yyyyMMdd</code></p>
+<p>Search by date must use the date format <code>dd/MM/yyyy</code></p>
 </li>
 <li>
 <p>The order of the keywords does not matter. e.g. <code>Hans Bo</code> will match <code>Bo Hans</code></p>
@@ -401,7 +402,7 @@ Returns any expense having names <code>Cheesecake</code>, eg: <code>Strawberry C
 <div class="sect2">
 <h3 id="deleting-an-item-code-delete-code"><a class="link" href="#deleting-an-item-code-delete-code">3.10. Deleting an item : <code>delete</code></a></h3>
 <div class="paragraph">
-<p>Deletes the item on the specified index from MYMorise.*<br>
+<p>Deletes the item at the specified index.*<br>
 Format: <code>delete INDEX</code></p>
 </div>
 <div class="sidebarblock">
@@ -438,7 +439,8 @@ is currently viewing a list of budgets, then delete will delete the budget speci
 <li>
 <p><code>list</code><br>
 <code>delete 2</code><br>
-Deletes the second expense in the default expense list in MYMorise.</p>
+Deletes the second expense in the default expense list in MYMorise.
+Deletes the 2nd expense in expenseList.</p>
 </li>
 <li>
 <p><code>find n/Coffee</code><br>
@@ -467,7 +469,7 @@ Deletes the second budget in the budget list in MYMorise.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="convert-butgets-or-expenses-to-a-different-currency"><a class="link" href="#convert-butgets-or-expenses-to-a-different-currency">3.12. Convert butgets or expenses to a different currency</a></h3>
+<h3 id="convert-budgets-or-expenses-to-a-different-currency"><a class="link" href="#convert-budgets-or-expenses-to-a-different-currency">3.12. Convert budgets or expenses to a different currency</a></h3>
 <div class="paragraph">
 <p>{Shows the current list of expenses in a certain currency}</p>
 </div>
@@ -475,7 +477,18 @@ Deletes the second budget in the budget list in MYMorise.</p>
 <div class="sect2">
 <h3 id="autocomplete"><a class="link" href="#autocomplete">3.13. Autocomplete</a></h3>
 <div class="paragraph">
-<p>{Enables user to quickly fill in command arguments with an autocomplete suggestion by pressing tab on the selected suggestion.}</p>
+<p>Equip with IDE-like autocomplete function for faster input and
+enables user to quickly fill in command arguments with an
+autocomplete suggestion.</p>
+</div>
+<div class="paragraph">
+<p>Suggestions include commonly used words in MYMorise and user can customize the suggestion list by changing the
+<code>vocabulary.txt</code></p>
+</div>
+<div class="paragraph">
+<p>When the user type, if there are suggestions for a certain input, user can press <kbd>tab</kbd> to autofill the first
+suggestion. Or press <kbd>DOWN</kbd> or <kbd>UP</kbd> to navigate between suggestions and then press <kbd>tab</kbd> or <kbd>enter</kbd>
+to autofill the selected item. You can also just <kbd>click</kbd> on an item to autofill.</p>
 </div>
 </div>
 <div class="sect2">
@@ -573,4 +586,4 @@ e.g. <code>delete 3</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-30 06:25:43 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-30 14:27:12 UTC</div></div></div></body></html>
