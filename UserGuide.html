@@ -15,23 +15,24 @@
 <ul class="sectlevel2">
 <li><a href="#viewing-help-code-help-code">3.1. Viewing help : <code>help</code></a></li>
 <li><a href="#listing-all-expenses-in-the-default-expense-list-code-list-code">3.2. Listing all expenses in the default expense list : <code>list</code></a></li>
-<li><a href="#listing-all-budgets-in-the-budget-list-code-listbudgets-code">3.3. Listing all budgets in the budget list : <code>listbudgets</code></a></li>
+<li><a href="#listing-all-budgets-in-the-budget-list-code-budgetlist-code">3.3. Listing all budgets in the budget list : <code>budgetlist</code></a></li>
 <li><a href="#adding-an-expense-code-add-code">3.4. Adding an expense: <code>add</code></a></li>
 <li><a href="#adding-a-budget-code-budget-code">3.5. Adding a budget : <code>budget</code></a></li>
-<li><a href="#viewing-expenses-in-a-period-code-view-code">3.6. Viewing expenses in a period : <code>view</code></a></li>
+<li><a href="#viewing-a-budget-code-view-code">3.6. Viewing a budget : <code>view</code></a></li>
 <li><a href="#editing-an-expense-code-edit-code">3.7. Editing an expense : <code>edit</code></a></li>
 <li><a href="#editing-a-budget-code-editbudget-code">3.8. Editing a budget : <code>editBudget</code></a></li>
-<li><a href="#locating-expenses-by-name-code-find-code">3.9. Locating expenses by name: <code>find</code></a></li>
-<li><a href="#deleting-an-item-code-delete-code">3.10. Deleting an item : <code>delete</code></a></li>
-<li><a href="#automatic-currency-conversion-for-foreign-currencies">3.11. Automatic currency conversion for foreign currencies</a></li>
-<li><a href="#autocomplete">3.12. Autocomplete</a></li>
-<li><a href="#exiting-the-program-code-exit-code">3.13. Exiting the program : <code>exit</code></a></li>
-<li><a href="#saving-data">3.14. Saving data</a></li>
-<li><a href="#display-expense-by-tag-in-chart-code-coming-in-v2-0-code">3.15. Display expense by tag in chart <code>[coming in v2.0]</code></a></li>
-<li><a href="#set-a-recurring-expense-code-coming-in-v2-0-code">3.16. Set a Recurring Expense <code>[coming in v2.0]</code></a></li>
-<li><a href="#undo-redo-commands-code-coming-in-v2-0-code">3.17. Undo/Redo commands <code>[coming in v2.0]</code></a></li>
-<li><a href="#show-command-history-code-coming-in-v2-0-code">3.18. Show command history <code>[coming in v2.0]</code></a></li>
-<li><a href="#faq">3.19. FAQ</a></li>
+<li><a href="#deleting-an-item-code-delete-code">3.9. Deleting an item : <code>delete</code></a></li>
+<li><a href="#clearing-a-list-code-clear-code">3.10. Clearing a list : <code>clear</code></a></li>
+<li><a href="#autocomplete">3.11. Autocomplete</a></li>
+<li><a href="#exiting-the-program-code-exit-code">3.12. Exiting the program : <code>exit</code></a></li>
+<li><a href="#saving-data">3.13. Saving data</a></li>
+<li><a href="#automatic-currency-conversion-for-foreign-currencies-code-coming-in-v1-4-code">3.14. Automatic currency conversion for foreign currencies <code>[coming in v1.4]</code></a></li>
+<li><a href="#locating-expenses-by-name-code-find-code-code-coming-in-v1-4-code">3.15. Locating expenses by name: <code>find</code> <code>[coming in v1.4]</code></a></li>
+<li><a href="#display-expense-by-tag-in-chart-code-coming-in-v2-0-code">3.16. Display expense by tag in chart <code>[coming in v2.0]</code></a></li>
+<li><a href="#set-a-recurring-expense-code-coming-in-v2-0-code">3.17. Set a Recurring Expense <code>[coming in v2.0]</code></a></li>
+<li><a href="#undo-redo-commands-code-coming-in-v2-0-code">3.18. Undo/Redo commands <code>[coming in v2.0]</code></a></li>
+<li><a href="#show-command-history-code-coming-in-v2-0-code">3.19. Show command history <code>[coming in v2.0]</code></a></li>
+<li><a href="#faq">3.20. FAQ</a></li>
 </ul>
 </li>
 <li><a href="#command-summary">4. Command Summary</a></li>
@@ -140,10 +141,10 @@ Format: <code>list</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="listing-all-budgets-in-the-budget-list-code-listbudgets-code"><a class="link" href="#listing-all-budgets-in-the-budget-list-code-listbudgets-code">3.3. Listing all budgets in the budget list : <code>listbudgets</code></a></h3>
+<h3 id="listing-all-budgets-in-the-budget-list-code-budgetlist-code"><a class="link" href="#listing-all-budgets-in-the-budget-list-code-budgetlist-code">3.3. Listing all budgets in the budget list : <code>budgetlist</code></a></h3>
 <div class="paragraph">
 <p>Shows a list of all budgets.<br>
-Format: <code>listbudgets</code></p>
+Format: <code>budgetlist</code></p>
 </div>
 </div>
 <div class="sect2">
@@ -259,10 +260,21 @@ Sets a budget of SGD800 for the period from Tue, 1st Jan 19 to Thu, 31st Jan 19.
 </div>
 </div>
 <div class="sect2">
-<h3 id="viewing-expenses-in-a-period-code-view-code"><a class="link" href="#viewing-expenses-in-a-period-code-view-code">3.6. Viewing expenses in a period : <code>view</code></a></h3>
+<h3 id="viewing-a-budget-code-view-code"><a class="link" href="#viewing-a-budget-code-view-code">3.6. Viewing a budget : <code>view</code></a></h3>
 <div class="paragraph">
-<p>View daily or monthly expenses.<br>
-Format: <code>view</code></p>
+<p>Views an existing budget in the budget list.<br>
+Format: <code>view INDEX</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Views the expenses stored in the budget, and shows the amount of money left in the budget.</p>
+</li>
+</ul>
+</div>
+</div>
 </div>
 </div>
 <div class="sect2">
@@ -315,7 +327,7 @@ Replaces the name of the second expense to <code>Poets Coffee</code> and clears 
 <div class="sect2">
 <h3 id="editing-a-budget-code-editbudget-code"><a class="link" href="#editing-a-budget-code-editbudget-code">3.8. Editing a budget : <code>editBudget</code></a></h3>
 <div class="paragraph">
-<p>Edits an existing budget in the budget list.*<br>
+<p>Edits an existing budget in the budget list.<br>
 Format: <code>editBudget INDEX [n/NAME] [a/AMOUNT] [c/CURRENCY]…</code></p>
 </div>
 <div class="sidebarblock">
@@ -354,7 +366,193 @@ Edits the currency of the second budget to <code>USD</code> only. Other fields r
 </div>
 </div>
 <div class="sect2">
-<h3 id="locating-expenses-by-name-code-find-code"><a class="link" href="#locating-expenses-by-name-code-find-code">3.9. Locating expenses by name: <code>find</code></a></h3>
+<h3 id="deleting-an-item-code-delete-code"><a class="link" href="#deleting-an-item-code-delete-code">3.9. Deleting an item : <code>delete</code></a></h3>
+<div class="paragraph">
+<p>Deletes the item at the specified index.*<br>
+Format: <code>delete INDEX</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Deletes the item at the specified INDEX.</p>
+</li>
+<li>
+<p>The index refers to the index number shown in the displayed list.</p>
+</li>
+<li>
+<p>The index <strong>must be a positive integer</strong> 1, 2, 3, …​
+The index is relative to what is displayed on the GUI rather than the actual index of the stored items.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>*The item to be deleted depends on the current view state. If the user is currently viewing
+a list of expenses, then delete will delete the expense specified by index. If the user
+is currently viewing a list of budgets, then delete will delete the budget specified by index.</p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="paragraph">
+<p><strong>While viewing list of expenses</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>list</code><br>
+<code>delete 2</code><br>
+Deletes the second expense in the default expense list in MYMorise.</p>
+</li>
+<li>
+<p><code>find n/Coffee</code><br>
+<code>delete 1</code><br>
+Deletes the first expense in the results of the find command.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>While viewing list of budgets</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>listbudgets</code><br>
+<code>delete 2</code>
+Deletes the second budget in the budget list in MYMorise.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="clearing-a-list-code-clear-code"><a class="link" href="#clearing-a-list-code-clear-code">3.10. Clearing a list : <code>clear</code></a></h3>
+<div class="paragraph">
+<p>Deletes all items in the current list.*<br>
+Format: <code>clear</code></p>
+</div>
+<div class="paragraph">
+<p>Using <code>clear</code> while viewing an expenselist will delete all expenses in that list.<br>
+Using <code>clear</code> while viewing the budgetlist will delete all budgets in the list.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="autocomplete"><a class="link" href="#autocomplete">3.11. Autocomplete</a></h3>
+<div class="paragraph">
+<p>Equip with IDE-like autocomplete function for faster input and
+enables users to quickly fill in command arguments with
+autocomplete suggestions.</p>
+</div>
+<div class="paragraph">
+<p>Suggestions include commonly used words in MYMorise and users may customize the suggestion list by changing the
+<code>vocabulary.txt</code></p>
+</div>
+<div class="paragraph">
+<p>When the user types, if there are suggestions for a certain input, user can press <kbd>tab</kbd> to autofill the first
+suggestion or press <kbd>DOWN</kbd> and <kbd>UP</kbd> to navigate between suggestions and then press <kbd>tab</kbd> or <kbd>enter</kbd>
+to autofill the selected item. User may also just <kbd>click</kbd> on an item to autofill.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.12. Exiting the program : <code>exit</code></a></h3>
+<div class="paragraph">
+<p>Exits the program.<br>
+Format: <code>exit</code></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="saving-data"><a class="link" href="#saving-data">3.13. Saving data</a></h3>
+<div class="paragraph">
+<p>Expense and Budget data are saved in the hard disk automatically after any command that changes the data.
+There is no need to save manually.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="automatic-currency-conversion-for-foreign-currencies-code-coming-in-v1-4-code"><a class="link" href="#automatic-currency-conversion-for-foreign-currencies-code-coming-in-v1-4-code">3.14. Automatic currency conversion for foreign currencies <code>[coming in v1.4]</code></a></h3>
+<div class="paragraph">
+<p>MYMorise is able to automatically display foreign currencies in the default currency set by the user. By default this is set
+to Singapore Dollars (SGD). The conversions are done in the following scenarios:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>When an expenses specifies a currency that is not the default currency</p>
+</li>
+<li>
+<p>When an expense specifies a currency that is different from that budget it is associated to.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>This automatic conversion allows for the computation of budgets and expenses regardless of their underlying currencies to provide
+a cleaner experience when viewing budgets and expenses with multiple differing currencies.</p>
+</div>
+<div class="paragraph">
+<p>The latest Foreign Exchange data for a limited set of supported currencies are updated whenever the application is launched. The list of supported currencies are as follows:</p>
+</div>
+<table class="tableblock frame-all grid-all" style="width: 80%;">
+<colgroup>
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.091%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">CAD</th>
+<th class="tableblock halign-left valign-top">HKD</th>
+<th class="tableblock halign-left valign-top">ISK</th>
+<th class="tableblock halign-left valign-top">PHP</th>
+<th class="tableblock halign-left valign-top">DKK</th>
+<th class="tableblock halign-left valign-top">HUF</th>
+<th class="tableblock halign-left valign-top">CZK</th>
+<th class="tableblock halign-left valign-top">GBP</th>
+<th class="tableblock halign-left valign-top">RON</th>
+<th class="tableblock halign-left valign-top">SEK</th>
+<th class="tableblock halign-left valign-top">IDR</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">INR</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">BRL</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">RUB</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">HRK</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">JPY</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">THB</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">CHF</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">EUR</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">MYR</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">BGN</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TRY</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">CNY</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">NOK</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">NZD</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ZAR</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">USD</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">MXN</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">SGD</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AUD</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ILS</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">KRW</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">PLN</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="locating-expenses-by-name-code-find-code-code-coming-in-v1-4-code"><a class="link" href="#locating-expenses-by-name-code-find-code-code-coming-in-v1-4-code">3.15. Locating expenses by name: <code>find</code> <code>[coming in v1.4]</code></a></h3>
 <div class="paragraph">
 <p>Finds all expenses by name, date, tag.<br>
 Format: <code>find [n/NAME] [d/DATE] [t/TAG]</code></p>
@@ -399,252 +597,31 @@ Returns any expense having names <code>Cheesecake</code>, eg: <code>Strawberry C
 </div>
 </div>
 <div class="sect2">
-<h3 id="deleting-an-item-code-delete-code"><a class="link" href="#deleting-an-item-code-delete-code">3.10. Deleting an item : <code>delete</code></a></h3>
-<div class="paragraph">
-<p>Deletes the item at the specified index.*<br>
-Format: <code>delete INDEX</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>Deletes the item at the specified INDEX.</p>
-</li>
-<li>
-<p>The index refers to the index number shown in the displayed list.</p>
-</li>
-<li>
-<p>The index <strong>must be a positive integer</strong> 1, 2, 3, …​
-The index is relative to what is displayed on the GUI rather than the actual index of the stored items.</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>*The item to be deleted depends on the current view state. If the user is currently viewing
-a list of expenses, then delete will delete the expense specified by index. If the user
-is currently viewing a list of budgets, then delete will delete the budget specified by index.</p>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="paragraph">
-<p><strong>While viewing list of expenses</strong></p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>list</code><br>
-<code>delete 2</code><br>
-Deletes the second expense in the default expense list in MYMorise.
-Deletes the 2nd expense in expenseList.</p>
-</li>
-<li>
-<p><code>find n/Coffee</code><br>
-<code>delete 1</code><br>
-Deletes the 1st expense in the results of the find command.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p><strong>While viewing list of budgets</strong></p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>listbudgets</code><br>
-<code>delete 2</code>
-Deletes the second budget in the budget list in MYMorise.</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="automatic-currency-conversion-for-foreign-currencies"><a class="link" href="#automatic-currency-conversion-for-foreign-currencies">3.11. Automatic currency conversion for foreign currencies</a></h3>
-<div class="paragraph">
-<p>MyMorise is able to automatically display foreign currencies in the default currency set by the user. By default this is set
-to Singapore Dollars (SGD). The conversions are done in the following scenarios:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>When an expenses specifies a currency that is not the default currency</p>
-</li>
-<li>
-<p>When an expense specifies a currency that is different from that budget it is associated to.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>This automatic conversion allows for the computation of budgets and expenses regardless of their underlying currencies to provide
-a cleaner experience when viewing budgets and expenses with multiple differing currencies.</p>
-</div>
-<div class="paragraph">
-<p>The latest Foreign Exchange data for a limited set of supported currencies are updated whenever the application is launched. The list of supported currencies are as follows:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>CAD</p>
-</li>
-<li>
-<p>HKD</p>
-</li>
-<li>
-<p>ISK</p>
-</li>
-<li>
-<p>PHP</p>
-</li>
-<li>
-<p>DKK</p>
-</li>
-<li>
-<p>HUF</p>
-</li>
-<li>
-<p>CZK</p>
-</li>
-<li>
-<p>GBP</p>
-</li>
-<li>
-<p>RON</p>
-</li>
-<li>
-<p>SEK</p>
-</li>
-<li>
-<p>IDR</p>
-</li>
-<li>
-<p>INR</p>
-</li>
-<li>
-<p>BRL</p>
-</li>
-<li>
-<p>RUB</p>
-</li>
-<li>
-<p>HRK</p>
-</li>
-<li>
-<p>JPY</p>
-</li>
-<li>
-<p>THB</p>
-</li>
-<li>
-<p>CHF</p>
-</li>
-<li>
-<p>EUR</p>
-</li>
-<li>
-<p>MYR</p>
-</li>
-<li>
-<p>BGN</p>
-</li>
-<li>
-<p>TRY</p>
-</li>
-<li>
-<p>CNY</p>
-</li>
-<li>
-<p>NOK</p>
-</li>
-<li>
-<p>NZD</p>
-</li>
-<li>
-<p>ZAR</p>
-</li>
-<li>
-<p>USD</p>
-</li>
-<li>
-<p>MXN</p>
-</li>
-<li>
-<p>SGD</p>
-</li>
-<li>
-<p>AUD</p>
-</li>
-<li>
-<p>ILS</p>
-</li>
-<li>
-<p>KRW</p>
-</li>
-<li>
-<p>PLN</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="autocomplete"><a class="link" href="#autocomplete">3.12. Autocomplete</a></h3>
-<div class="paragraph">
-<p>Equip with IDE-like autocomplete function for faster input and
-enables user to quickly fill in command arguments with an
-autocomplete suggestion.</p>
-</div>
-<div class="paragraph">
-<p>Suggestions include commonly used words in MYMorise and user can customize the suggestion list by changing the
-<code>vocabulary.txt</code></p>
-</div>
-<div class="paragraph">
-<p>When the user type, if there are suggestions for a certain input, user can press <kbd>tab</kbd> to autofill the first
-suggestion. Or press <kbd>DOWN</kbd> or <kbd>UP</kbd> to navigate between suggestions and then press <kbd>tab</kbd> or <kbd>enter</kbd>
-to autofill the selected item. You can also just <kbd>click</kbd> on an item to autofill.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.13. Exiting the program : <code>exit</code></a></h3>
-<div class="paragraph">
-<p>Exits the program.<br>
-Format: <code>exit</code></p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="saving-data"><a class="link" href="#saving-data">3.14. Saving data</a></h3>
-<div class="paragraph">
-<p>Expense and Budget data are saved in the hard disk automatically after any command that changes the data.
-There is no need to save manually.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="display-expense-by-tag-in-chart-code-coming-in-v2-0-code"><a class="link" href="#display-expense-by-tag-in-chart-code-coming-in-v2-0-code">3.15. Display expense by tag in chart <code>[coming in v2.0]</code></a></h3>
+<h3 id="display-expense-by-tag-in-chart-code-coming-in-v2-0-code"><a class="link" href="#display-expense-by-tag-in-chart-code-coming-in-v2-0-code">3.16. Display expense by tag in chart <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
 <p><em>{Displays the expense in a pie chart to show breakdown of expenses.}</em></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="set-a-recurring-expense-code-coming-in-v2-0-code"><a class="link" href="#set-a-recurring-expense-code-coming-in-v2-0-code">3.16. Set a Recurring Expense <code>[coming in v2.0]</code></a></h3>
+<h3 id="set-a-recurring-expense-code-coming-in-v2-0-code"><a class="link" href="#set-a-recurring-expense-code-coming-in-v2-0-code">3.17. Set a Recurring Expense <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
 <p><em>{Sets a recurring expense for a specific duration and frequency.}</em></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="undo-redo-commands-code-coming-in-v2-0-code"><a class="link" href="#undo-redo-commands-code-coming-in-v2-0-code">3.17. Undo/Redo commands <code>[coming in v2.0]</code></a></h3>
+<h3 id="undo-redo-commands-code-coming-in-v2-0-code"><a class="link" href="#undo-redo-commands-code-coming-in-v2-0-code">3.18. Undo/Redo commands <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
 <p><em>{Allows user to undo and redo commands.}</em></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="show-command-history-code-coming-in-v2-0-code"><a class="link" href="#show-command-history-code-coming-in-v2-0-code">3.18. Show command history <code>[coming in v2.0]</code></a></h3>
+<h3 id="show-command-history-code-coming-in-v2-0-code"><a class="link" href="#show-command-history-code-coming-in-v2-0-code">3.19. Show command history <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
 <p><em>{User is able to navigate using up and down keys to cycle through past commands typed during the session.}</em></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="faq"><a class="link" href="#faq">3.19. FAQ</a></h3>
+<h3 id="faq"><a class="link" href="#faq">3.20. FAQ</a></h3>
 <div class="paragraph">
 <p><strong>Q</strong>: How do I transfer my data to another Computer?<br>
 <strong>A</strong>: Run the app in the other computer and overwrite the empty data file it creates with the file that contains the data from your MYMorise/data folder.</p>
@@ -664,7 +641,7 @@ There is no need to save manually.</p>
 <p><strong>List</strong> : <code>list</code></p>
 </li>
 <li>
-<p><strong>List Budgets</strong> : <code>listbudgets</code></p>
+<p><strong>List Budgets</strong> : <code>budgetlist</code></p>
 </li>
 <li>
 <p><strong>Add</strong> : <code>add n/NAME a/AMOUNT [c/CURRENCY] [d/DATE] [t/TAG]…</code><br>
@@ -675,7 +652,7 @@ e.g. <code>add n/Coffee a/2.00 c/SGD t/nourishment t/school</code></p>
 e.g. <code>budget n/Japan Travel a/4000 c/USD d/9/10/19 ed/19/10/19</code></p>
 </li>
 <li>
-<p><strong>View</strong> : <code>view</code></p>
+<p><strong>View Budget</strong> : <code>view INDEX</code></p>
 </li>
 <li>
 <p><strong>Edit</strong> : <code>edit INDEX [n/NAME] [a/AMOUNT] [c/CURRENCY] [t/TAG]…​</code><br>
@@ -695,9 +672,12 @@ e.g. <code>find t/nourishment</code></p>
 e.g. <code>delete 3</code></p>
 </li>
 <li>
+<p><strong>Clear</strong> : <code>clear</code></p>
+</li>
+<li>
 <p><strong>Exit</strong> : <code>exit</code></p>
 </li>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-30 15:54:28 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-31 17:25:14 UTC</div></div></div></body></html>
