@@ -49,6 +49,47 @@ computers</strong>. With MYMorise, you can easily see your daily expenses as wel
 functionalities. More importantly, MYMorise is <strong>optimized for those who prefer to work with Command Line Interface (CLI)</strong> while still having the benefits of a <strong>Graphical User Interface
 (GUI)</strong>. Interested? Jump to the <a href="#quick-start">Section 2, &#8220;Quick Start&#8221;</a> to get started. Enjoy!</p>
 </div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p><strong>Things to note in MYMorise:</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Expense - refers to the cost incurred in or required for something which the user would like to record</p>
+</li>
+<li>
+<p>Budget - refers to an estimate of income and expenditure for a set period of time.</p>
+</li>
+<li>
+<p>Default expense list - refers to all expenses that do not fall into any budgets in MYMorise.</p>
+</li>
+<li>
+<p>The amounts used in MYMorise can only work for numbers up to 2 decimal places.</p>
+</li>
+<li>
+<p>MYMorise&#8217;s GUI consists of 3 display panels:</p>
+<div class="literalblock">
+<div class="content">
+<pre>The left panel - displays all expenses recorded in MYMorise. User commands do not reference from this panel and should not be made based on this panel. Commands made should reference from the centre panel. The purpose of this panel is solely for displaying all expenses recorded only.</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>The centre panel - displays the current view requested by user. All commands made are in relative to the content displayed in this panel. That is, if a user enters the command `budgetlist` or `view 1`, this panel will reflect the content requested. Subsequent commands such as `edit` and `editBudget` will reference from this panel. On start up, the centre panel displays the default expense list.</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>The right panel - displays the visual graphics of the content shown in the centre panel only.</pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -88,7 +129,7 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <p><strong><code>list</code></strong> : lists all expenses</p>
 </li>
 <li>
-<p><strong><code>add</code></strong><code>n/Textbook a/23.50 t/education t/school</code> : adds an expense named <code>Textbook</code> to expenselist with the tags
+<p><strong><code>add</code></strong><code>n/Textbook a/23.50 t/education t/school</code> : adds an expense named <code>Textbook</code> to the expense list with the tags
 <code>education</code> and <code>school</code>.</p>
 </li>
 <li>
@@ -140,7 +181,7 @@ Format: <code>help</code></p>
 <div class="sect2">
 <h3 id="listing-all-expenses-in-the-default-expense-list-code-list-code"><a class="link" href="#listing-all-expenses-in-the-default-expense-list-code-list-code">3.2. Listing all expenses in the default expense list : <code>list</code></a></h3>
 <div class="paragraph">
-<p>Shows a list of all expenses that do not fall into any budgets in expenseList.<br>
+<p>Shows a list of all expenses that do not fall into any budgets in MYMorise.<br>
 Format: <code>list</code></p>
 </div>
 </div>
@@ -176,7 +217,7 @@ An expense with no currency specified will have the default currency set.
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-An expense with no date specified will default to current date of addition.
+An expense with no date specified will default to current date and time of addition.
 </td>
 </tr>
 </table>
@@ -189,6 +230,18 @@ An expense with no date specified will default to current date of addition.
 </td>
 <td class="content">
 An expense can have any number of tags (including no tags).
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+User may input time in the format "HHMM" in the [d/DATE] portion to specify current date with specified time
 </td>
 </tr>
 </table>
@@ -222,7 +275,7 @@ Format: <code>budget n/NAME a/AMOUNT [c/CURRENCY] d/STARTDATE ed/ENDDATE</code><
 <div class="ulist">
 <ul>
 <li>
-<p>Sets a budget for a period beginning from STARTDATE to ENDDATE (inclusive). All expenses made during
+<p>Sets a budget for a period beginning from STARTDATE (dd/MM/yyyy) to ENDDATE (dd/MM/yyyy) (inclusive). All expenses made during
 that period after the budget is set, will be included into the budget and the budget will deduct the expense
 to indicate how much funds are left available to spend.</p>
 </li>
@@ -230,6 +283,12 @@ to indicate how much funds are left available to spend.</p>
 <p>Only expenses made that fall into the budget period after the budget is set will
 be included into the budget. Expenses created before the budget is set but falls into the budget period
 will not be included into the budget. They will remain in the default expense list.</p>
+</li>
+<li>
+<p>Budgets may not have overlapping dates.<br>
+Example: There is an existing budget with
+start date 12/1/2019 and end date 18/1/2019, then new budgets to be added cannot have start date and/or
+end dates from 12/1/2019 to 18/1/2019 (inclusive)</p>
 </li>
 </ul>
 </div>
@@ -247,18 +306,30 @@ A budget with no currency specified will have the default currency set.
 </tr>
 </table>
 </div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+User may input time in the format "HHMM" in the [d/DATE] portion to specify current date with specified time
+</td>
+</tr>
+</table>
+</div>
 <div class="paragraph">
 <p>Examples:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>budget n/Japan Travel a/4000 c/USD d/9/10/19 ed/19/10/19</code><br>
-Sets a budget of SGD4000 for the period from Wed, 9th Oct 19 to Sat, 19th Oct 19.</p>
+<p><code>budget n/Japan Travel a/4000 c/USD d/9/10/2019 ed/19/10/2019</code><br>
+Sets a budget of SGD4000 for the period from Wed, 9th Oct 2019 to Sat, 19th Oct 2019.</p>
 </li>
 <li>
-<p><code>budget n/January 2019 Budget a/800 c/SGD d/1/1/19 ed/31/1/19</code><br>
-Sets a budget of SGD800 for the period from Tue, 1st Jan 19 to Thu, 31st Jan 19.</p>
+<p><code>budget n/January 2019 Budget a/800 c/SGD d/1/1/2019 ed/31/1/2019</code><br>
+Sets a budget of SGD800 for the period from Tue, 1st Jan 2019 to Thu, 31st Jan 2019.</p>
 </li>
 </ul>
 </div>
@@ -294,7 +365,10 @@ Format: <code>edit INDEX [n/NAME] [a/AMOUNT] [c/CURRENCY] [t/TAG]…</code></p>
 <li>
 <p>Edits the expense at the specified <code>INDEX</code>. The index refers to the index number shown in the displayed expense
 list. The index <strong>must be a positive integer</strong> 1, 2, 3, …​ The index is relative to what is displayed on the GUI rather
-than the actual index of the expense in expenseList.</p>
+than the actual index of the expense in the expense list.</p>
+</li>
+<li>
+<p>The user has to be viewing an expense list to edit an expense.</p>
 </li>
 <li>
 <p>At least one of the optional fields must be provided.</p>
@@ -319,7 +393,7 @@ than the actual index of the expense in expenseList.</p>
 <ul>
 <li>
 <p><code>edit 1 a/20.10</code><br>
-Edits the amount of the first expense to be <code>$20.10</code>.</p>
+Edits the amount of the first expense to be <code>20.10</code>.</p>
 </li>
 <li>
 <p><code>edit 2 n/Poets Coffee t/</code><br>
@@ -424,7 +498,7 @@ Deletes the first expense in the results of the find command.</p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>listbudgets</code><br>
+<p><code>budgetlist</code><br>
 <code>delete 2</code>
 Deletes the second budget in the budget list in MYMorise.</p>
 </li>
@@ -462,8 +536,8 @@ a cleaner experience when viewing budgets and expenses with multiple differing c
 Format: <code>clear</code></p>
 </div>
 <div class="paragraph">
-<p>Using <code>clear</code> while viewing an expenselist will delete all expenses in that list.<br>
-Using <code>clear</code> while viewing the budgetlist will delete all budgets in the list.</p>
+<p>Using <code>clear</code> while viewing an expense list will delete all expenses in that list.<br>
+Using <code>clear</code> while viewing the budget list will delete all budgets in the list.</p>
 </div>
 </div>
 <div class="sect2">
@@ -708,4 +782,4 @@ e.g. <code>delete 3</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-06 15:01:52 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-06 15:52:36 UTC</div></div></div></body></html>
