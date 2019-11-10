@@ -14,12 +14,12 @@
 <li><a href="#Features">3. Features</a>
 <ul class="sectlevel2">
 <li><a href="#viewing-help-code-help-code">3.1. Viewing help : <code>help</code></a></li>
-<li><a href="#listing-all-expenses-in-the-default-expense-list-code-list-code">3.2. Listing all expenses in the default expense list : <code>list</code></a></li>
-<li><a href="#listing-all-budgets-in-the-budget-list-code-budgetlist-code">3.3. Listing all budgets in the budget list : <code>budgetlist</code></a></li>
-<li><a href="#adding-an-expense-code-add-code">3.4. Adding an expense: <code>add</code></a></li>
+<li><a href="#listing-all-expenses-in-the-default-expense-list-code-listdefaultexpenses-code">3.2. Listing all expenses in the default expense list : <code>listDefaultExpenses</code></a></li>
+<li><a href="#listing-all-budgets-in-the-budget-list-code-listbudgets-code">3.3. Listing all budgets in the budget list : <code>listBudgets</code></a></li>
+<li><a href="#adding-an-expense-code-expense-code">3.4. Adding an expense: <code>expense</code></a></li>
 <li><a href="#adding-a-budget-code-budget-code">3.5. Adding a budget : <code>budget</code></a></li>
 <li><a href="#viewing-a-budget-code-view-code">3.6. Viewing a budget : <code>view</code></a></li>
-<li><a href="#editing-an-expense-code-edit-code">3.7. Editing an expense : <code>edit</code></a></li>
+<li><a href="#editing-an-expense-code-editexpense-code">3.7. Editing an expense : <code>editExpense</code></a></li>
 <li><a href="#editing-a-budget-code-editbudget-code">3.8. Editing a budget : <code>editBudget</code></a></li>
 <li><a href="#deleting-an-item-code-delete-code">3.9. Deleting an item : <code>delete</code></a></li>
 <li><a href="#automatic-currency-conversion-for-foreign-currencies">3.10. Automatic currency conversion for foreign currencies</a></li>
@@ -77,7 +77,7 @@ functionalities. More importantly, MYMorise is <strong>optimized for those who p
 </div>
 <div class="literalblock">
 <div class="content">
-<pre>The centre panel - displays the current view requested by user. All commands made are in relative to the content displayed in this panel. That is, if a user enters the command `budgetlist` or `view 1`, this panel will reflect the content requested. Subsequent commands such as `edit` and `editBudget` will reference from this panel. On start up, the centre panel displays the default expense list.</pre>
+<pre>The centre panel - displays the current view requested by user. All commands made are in relative to the content displayed in this panel. That is, if a user enters the command `listBudgets` or `view 1`, this panel will reflect the content requested. Subsequent commands such as `editExpense` and `editBudget` will reference from this panel. On start up, the centre panel displays the default expense list.</pre>
 </div>
 </div>
 <div class="literalblock">
@@ -126,10 +126,10 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <div class="ulist">
 <ul>
 <li>
-<p><strong><code>list</code></strong> : lists all expenses</p>
+<p><strong><code>listDefaultExpenses</code></strong> : lists all expenses</p>
 </li>
 <li>
-<p><strong><code>add</code></strong><code>n/Textbook a/23.50 t/education t/school</code> : adds an expense named <code>Textbook</code> to the expense list with the tags
+<p><strong><code>expense</code></strong><code>n/Textbook a/23.50 t/education t/school</code> : adds an expense named <code>Textbook</code> to the expense list with the tags
 <code>education</code> and <code>school</code>.</p>
 </li>
 <li>
@@ -179,24 +179,24 @@ Format: <code>help</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="listing-all-expenses-in-the-default-expense-list-code-list-code"><a class="link" href="#listing-all-expenses-in-the-default-expense-list-code-list-code">3.2. Listing all expenses in the default expense list : <code>list</code></a></h3>
+<h3 id="listing-all-expenses-in-the-default-expense-list-code-listdefaultexpenses-code"><a class="link" href="#listing-all-expenses-in-the-default-expense-list-code-listdefaultexpenses-code">3.2. Listing all expenses in the default expense list : <code>listDefaultExpenses</code></a></h3>
 <div class="paragraph">
 <p>Shows a list of all expenses that do not fall into any budgets in MYMorise.<br>
-Format: <code>list</code></p>
+Format: <code>listDefaultExpenses</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="listing-all-budgets-in-the-budget-list-code-budgetlist-code"><a class="link" href="#listing-all-budgets-in-the-budget-list-code-budgetlist-code">3.3. Listing all budgets in the budget list : <code>budgetlist</code></a></h3>
+<h3 id="listing-all-budgets-in-the-budget-list-code-listbudgets-code"><a class="link" href="#listing-all-budgets-in-the-budget-list-code-listbudgets-code">3.3. Listing all budgets in the budget list : <code>listBudgets</code></a></h3>
 <div class="paragraph">
 <p>Shows a list of all budgets.<br>
-Format: <code>budgetlist</code></p>
+Format: <code>listBudgets</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="adding-an-expense-code-add-code"><a class="link" href="#adding-an-expense-code-add-code">3.4. Adding an expense: <code>add</code></a></h3>
+<h3 id="adding-an-expense-code-expense-code"><a class="link" href="#adding-an-expense-code-expense-code">3.4. Adding an expense: <code>expense</code></a></h3>
 <div class="paragraph">
 <p>Adds an expense to track.*<br>
-Format: <code>add n/NAME a/AMOUNT [c/CURRENCY] [d/DATE] [t/TAG]…​</code></p>
+Format: <code>expense n/NAME a/AMOUNT [c/CURRENCY] [d/DATE] [t/TAG]…​</code></p>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -246,16 +246,30 @@ User may input time in the format "HHMM" in the [d/DATE] portion to specify curr
 </tr>
 </table>
 </div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+If user wants to add an expense onto the last day of a month, just specify the day to be 31 and it will automatically be added onto the last day of the month.<br>
+E.g., if user wants to add an expense to the last day of April but is unsure of which day is the last day, just specify date to be 31/4/2019 and it will be added to 30th April 2019 (last day of April).<br>
+This tip works on budget dates too!
+</td>
+</tr>
+</table>
+</div>
 <div class="paragraph">
 <p>Examples:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>add n/Coffee a/1.80 t/food</code></p>
+<p><code>expense n/Coffee a/1.80 t/food</code></p>
 </li>
 <li>
-<p><code>add n/Textbook a/23.50 t/education t/school</code></p>
+<p><code>expense n/Textbook a/23.50 t/education t/school</code></p>
 </li>
 </ul>
 </div>
@@ -353,10 +367,10 @@ Format: <code>view INDEX</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="editing-an-expense-code-edit-code"><a class="link" href="#editing-an-expense-code-edit-code">3.7. Editing an expense : <code>edit</code></a></h3>
+<h3 id="editing-an-expense-code-editexpense-code"><a class="link" href="#editing-an-expense-code-editexpense-code">3.7. Editing an expense : <code>editExpense</code></a></h3>
 <div class="paragraph">
 <p>Edits an existing expense in the expense list.<br>
-Format: <code>edit INDEX [n/NAME] [a/AMOUNT] [c/CURRENCY] [t/TAG]…</code></p>
+Format: <code>editExpense INDEX [n/NAME] [a/AMOUNT] [c/CURRENCY] [t/TAG]…</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -392,11 +406,11 @@ than the actual index of the expense in the expense list.</p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>edit 1 a/20.10</code><br>
+<p><code>editExpense 1 a/20.10</code><br>
 Edits the amount of the first expense to be <code>20.10</code>.</p>
 </li>
 <li>
-<p><code>edit 2 n/Poets Coffee t/</code><br>
+<p><code>editExpense 2 n/Poets Coffee t/</code><br>
 Replaces the name of the second expense to <code>Poets Coffee</code> and clears all existing tags.</p>
 </li>
 </ul>
@@ -481,7 +495,7 @@ is currently viewing a list of budgets, then delete will delete the budget speci
 <div class="ulist">
 <ul>
 <li>
-<p><code>list</code><br>
+<p><code>listDefaultExpenses</code><br>
 <code>delete 2</code><br>
 Deletes the second expense in the default expense list in MYMorise.</p>
 </li>
@@ -498,7 +512,7 @@ Deletes the first expense in the results of the find command.</p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>budgetlist</code><br>
+<p><code>listBudgets</code><br>
 <code>delete 2</code>
 Deletes the second budget in the budget list in MYMorise.</p>
 </li>
@@ -740,14 +754,14 @@ Returns any expense having names <code>Cheesecake</code>, eg: <code>Strawberry C
 <p><strong>Help</strong> : <code>help</code></p>
 </li>
 <li>
-<p><strong>List</strong> : <code>list</code></p>
+<p><strong>List Default Expenses</strong> : <code>listDefaultExpenses</code></p>
 </li>
 <li>
-<p><strong>List Budgets</strong> : <code>budgetlist</code></p>
+<p><strong>List Budgets</strong> : <code>listBudgets</code></p>
 </li>
 <li>
-<p><strong>Add</strong> : <code>add n/NAME a/AMOUNT [c/CURRENCY] [d/DATE] [t/TAG]…</code><br>
-e.g. <code>add n/Coffee a/2.00 c/SGD t/nourishment t/school</code></p>
+<p><strong>Add Expense</strong> : <code>expense n/NAME a/AMOUNT [c/CURRENCY] [d/DATE] [t/TAG]…</code><br>
+e.g. <code>expense n/Coffee a/2.00 c/SGD t/nourishment t/school</code></p>
 </li>
 <li>
 <p><strong>Add Budget</strong> : <code>budget n/NAME a/AMOUNT [c/CURRENCY] d/STARTDATE ed/ENDDATE</code>
@@ -757,8 +771,8 @@ e.g. <code>budget n/Japan Travel a/4000 c/USD d/9/10/19 ed/19/10/19</code></p>
 <p><strong>View Budget</strong> : <code>view INDEX</code></p>
 </li>
 <li>
-<p><strong>Edit</strong> : <code>edit INDEX [n/NAME] [a/AMOUNT] [c/CURRENCY] [t/TAG]…​</code><br>
-e.g. <code>edit 2 n/Starbucks Coffee t/nourishment</code></p>
+<p><strong>Edit Expense</strong> : <code>editExpense INDEX [n/NAME] [a/AMOUNT] [c/CURRENCY] [t/TAG]…​</code><br>
+e.g. <code>editExpense 2 n/Starbucks Coffee t/nourishment</code></p>
 </li>
 <li>
 <p><strong>Edit Budget</strong> : <code>editBudget INDEX [n/NAME] [a/AMOUNT] [c/CURRENCY]</code><br>
@@ -782,4 +796,4 @@ e.g. <code>delete 3</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-10 12:49:31 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-10 14:35:10 UTC</div></div></div></body></html>
