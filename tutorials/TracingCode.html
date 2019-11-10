@@ -219,14 +219,14 @@ look at each one.</p>
 <div class="title">AddressBookParser#parseCommand()</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="java">...
-case EditCommand.COMMAND_WORD:
-    <span class="keyword">return</span> <span class="keyword">new</span> EditCommandParser().parse(arguments);
+case EditExpenseCommand.COMMAND_WORD:
+    <span class="keyword">return</span> <span class="keyword">new</span> EditExpenseCommandParser().parse(arguments);
 ...</code></pre>
 </div>
 </div>
 </li>
 <li>
-<p>Let&#8217;s see what <code>EditCommandParser#parse()</code> does by stepping into it.</p>
+<p>Let&#8217;s see what <code>EditExpenseCommandParser#parse()</code> does by stepping into it.</p>
 </li>
 <li>
 <p>Stepping through the method shows that it calls <code>ArgumentTokenizer#tokenize()</code> and <code>ParserUtil#parseIndex()</code> to
@@ -271,7 +271,7 @@ Does the execution path you traced in the code so far matches with the diagram?<
 <li>
 <p>Now let&#8217;s see what happens when we call <code>command#execute()</code>!</p>
 <div class="listingblock">
-<div class="title">EditCommand#execute()</div>
+<div class="title">EditExpenseCommand#execute()</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="java"><span class="annotation">@Override</span>
 <span class="directive">public</span> CommandResult execute(Model model) <span class="directive">throws</span> CommandException {
@@ -417,4 +417,4 @@ handled?</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-10 12:09:24 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-10 12:48:59 UTC</div></div></div></body></html>

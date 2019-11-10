@@ -129,7 +129,7 @@ Assume that AddressBook confirms the change with the user before carrying out th
 <ul>
 <li>
 <p>Add a method <code>boolean isMutating()</code> to the <code>Command</code> class. This method will return <code>true</code> for
-command types that mutate the data. e.g. <code>AddCommand</code></p>
+command types that mutate the data. e.g. <code>AddExpenseCommand</code></p>
 </li>
 <li>
 <p>Currently, AddressBook data are saved to the file after every command.
@@ -267,7 +267,7 @@ For example, you should be able to call that method like this:</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Add a <code>throws Exception</code> clause to the <code>AddCommand::execute</code> method. Notice how Java compiler will not allow it,
+<p>Add a <code>throws Exception</code> clause to the <code>AddExpenseCommand::execute</code> method. Notice how Java compiler will not allow it,
 unless you add the same <code>throws</code> clause to the parent class method. This is because if a child class throws
 an exception that is not specified by the Parent&#8217;s contract, the child class is no longer substitutable in place of
 the parent class.</p>
@@ -474,4 +474,4 @@ of storages, but different number of storages (e.g. save to both a text file and
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-10 12:09:24 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-10 12:48:58 UTC</div></div></div></body></html>
