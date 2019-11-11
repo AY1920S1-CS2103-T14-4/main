@@ -22,11 +22,12 @@
 </li>
 <li><a href="#implementation">3. Implementation</a>
 <ul class="sectlevel2">
-<li><a href="#autocomplete-feature">3.1. AutoComplete Feature</a></li>
-<li><a href="#history-feature">3.2. History Feature</a></li>
-<li><a href="#currency-conversion">3.3. Currency Conversion</a></li>
-<li><a href="#logging">3.4. Logging</a></li>
-<li><a href="#Implementation-Configuration">3.5. Configuration</a></li>
+<li><a href="#budget-feature">3.1. Budget Feature</a></li>
+<li><a href="#autocomplete-feature">3.2. AutoComplete Feature</a></li>
+<li><a href="#history-feature">3.3. History Feature</a></li>
+<li><a href="#currency-conversion">3.4. Currency Conversion</a></li>
+<li><a href="#logging">3.5. Logging</a></li>
+<li><a href="#Implementation-Configuration">3.6. Configuration</a></li>
 </ul>
 </li>
 <li><a href="#documentation">4. Documentation</a></li>
@@ -295,24 +296,7 @@ The lifeline for <code>DeleteCommandParser</code> should end at the destroy mark
 <li>
 <p>exposes an unmodifiable <code>ObservableList&lt;Expense&gt;</code> and an unmodifiable <code>ObservableList&lt;Budget&gt;</code> that can be 'observed' e.g. the UI can be bound to either list so that the UI automatically updates when the data in the list change.</p>
 </li>
-<li>
-<p>does not depend on any of the other three components.</p>
-</li>
 </ul>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-As a more OOP model, we can store a <code>Tag</code> list in <code>Address Book</code>, which <code>Person</code> can reference. This would allow <code>Address Book</code> to only require one <code>Tag</code> object per unique <code>Tag</code>, instead of each <code>Person</code> needing their own <code>Tag</code> object. An example of how such a model may look like is given below.<br>
-<br>
-<span class="image"><img src="images/BetterModelClassDiagram.png" alt="BetterModelClassDiagram"></span>
-</td>
-</tr>
-</table>
 </div>
 </div>
 <div class="sect2">
@@ -355,9 +339,126 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>Address Book<
 <p>This section describes some noteworthy details on how certain features are implemented.</p>
 </div>
 <div class="sect2">
-<h3 id="autocomplete-feature"><a class="link" href="#autocomplete-feature">3.1. AutoComplete Feature</a></h3>
+<h3 id="budget-feature"><a class="link" href="#budget-feature">3.1. Budget Feature</a></h3>
 <div class="sect3">
-<h4 id="implementation-2"><a class="link" href="#implementation-2">3.1.1. Implementation</a></h4>
+<h4 id="overview"><a class="link" href="#overview">3.1.1. Overview</a></h4>
+<div class="paragraph">
+<p>The Budget feature allows users to track their expenses in relation to the budget set. Expenses created by the user after a budget is set and falls into a budget period will
+automatically be added into that budget.</p>
+</div>
+<div class="paragraph">
+<p>The feature allows the user to view a list of all the budgets created in the app. From the list of budgets, users may view any specific budget
+showing all the expenses allocated into the budget, along with the amount left in the budget.
+Users may add, delete, edit a budget as well as the expenses inside the budget.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="implementation-2"><a class="link" href="#implementation-2">3.1.2. Implementation</a></h4>
+<div class="paragraph">
+<p>The <code>BudgetList</code> stores all the budgets created in the App. To facilitate the adding, deleting and editing of budgets, the BudgetList provides a
+few operations such as:<br>
+<code>BudgetList#addBudget(budget)</code> - Add a new budget into the list of budgets in the budget list.<br>
+<code>BudgetList#setBudget(budget, editedBudget)</code> - Edit a current existing budget to a different budget<br>
+<code>BudgetList#removeBudget(budget)</code> - Remove a specified budget</p>
+</div>
+<div class="paragraph">
+<p>Given below is an activity diagram to show how a budget is added.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/AddBudgetActivityDiagram.png" alt="AddBudgetActivityDiagram">
+</div>
+</div>
+<div class="paragraph">
+<p>Given below is an activity diagram to show how an expense is added after the implementation of budget.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/AddExpenseActivityDiagram.png" alt="AddExpenseActivityDiagram">
+</div>
+</div>
+<div class="paragraph">
+<p>Given below is a class diagram of a Budget.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/BudgetClassDiagram.png" alt="BudgetClassDiagram">
+</div>
+</div>
+<div class="paragraph">
+<p>Notice that the budget consists of 2 Amounts and 2 Dates.<br>
+The 2 Amounts refer to the Budget Amount set by the user and the Budget Amount
+currently left after deducting all expenses in the budget.<br>
+The 2 Dates refer to the Start Date of the Budget and the End Date of the budget. All expenses added after the budget is created,
+and fall within this 2 dates, will be automatically added into the budget.</p>
+</div>
+<div class="paragraph">
+<p>Given below is an example of a object diagram of a newly created Budget.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/BudgetObjectDiagram.png" alt="BudgetObjectDiagram">
+</div>
+</div>
+<div class="paragraph">
+<p>The Budget consists of an ExpenseList which holds all expenses added into the Budget.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-consideration"><a class="link" href="#design-consideration">3.1.3. Design Consideration</a></h4>
+<div class="paragraph">
+<p>There were 2 main design choices we had to choose from for the implementation of the Budget Feature.<br></p>
+</div>
+<div class="paragraph">
+<p><strong>Aspect: A single source of truth</strong><br>
+The model consists of an expense list and a budget list.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1:</strong> Have a master expense list to store all expenses created and a budget list that consist of an internal
+expense list that stores copies of the expenses from master expense list that fall into the budget. In this option, commands that affect expenses, will require
+an update in the master expense list and the expense lists inside budgets affected.<br></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easy to implement, easy to keep track of a overall expenses.</p>
+</li>
+<li>
+<p>Cons: Multiple objects of the same expense. An update to an expense in the overall expense list will require a same update
+to the same expense located in the budget. May result in bugs when commands affect expenses.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Have a default expense list that stores only expenses that do not fall into a budget, and a budget list that consist
+of an internal expense list that stores the expenses that fall into a budget when the expense is added or edited. In this option, there is only
+1 copy of any expense created by the user. Any edit or delete of an expense affects directly to the original expense object.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Achieve a single source of truth. Does not introduce possible bugs that may be present if there were multiple copies of the same expense.</p>
+</li>
+<li>
+<p>Cons: More complex to implement. In order to view all expenses in the app, the program will have to loop through the default expense list
+and the expense lists of every single budget.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Alternative 2</strong> was chosen. Reason is because a single source of truth would eliminate duplicate entries of the same data. This would
+also reduce the possibility of bugs that may come with duplicate entries.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="autocomplete-feature"><a class="link" href="#autocomplete-feature">3.2. AutoComplete Feature</a></h3>
+<div class="sect3">
+<h4 id="implementation-3"><a class="link" href="#implementation-3">3.2.1. Implementation</a></h4>
 <div class="paragraph">
 <p>Autocomplete is facilitated by several parts.
 The logic part is implemented through <code>java.seedu.address.logic.search</code> package which contains <code>AutoComplete</code> and
@@ -411,7 +512,7 @@ Since the result is based on a pre-order for sorting, all the words inside this 
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations"><a class="link" href="#design-considerations">3.1.2. Design Considerations</a></h4>
+<h4 id="design-considerations"><a class="link" href="#design-considerations">3.2.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-autocomplete-works"><a class="link" href="#aspect-how-autocomplete-works">Aspect: How Autocomplete works</a></h5>
 <div class="paragraph">
@@ -448,9 +549,9 @@ navigate using UP and DOWN) to make user benefit by typing faster.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="history-feature"><a class="link" href="#history-feature">3.2. History Feature</a></h3>
+<h3 id="history-feature"><a class="link" href="#history-feature">3.3. History Feature</a></h3>
 <div class="sect3">
-<h4 id="implementation-3"><a class="link" href="#implementation-3">3.2.1. Implementation</a></h4>
+<h4 id="implementation-4"><a class="link" href="#implementation-4">3.3.1. Implementation</a></h4>
 <div class="paragraph">
 <p>History is mainly facilitated by <code>CommandHistory</code> with <code>HistoryPointer</code>. When the app starts, a <code>CommandHistory</code>
 instance is created and any command executed (no matter valid or not) will be saved to a list of history commands.
@@ -476,7 +577,7 @@ event of <strong>F3</strong> or <strong>F4</strong> is triggered, it will naviga
 </div>
 </div>
 <div class="sect2">
-<h3 id="currency-conversion"><a class="link" href="#currency-conversion">3.3. Currency Conversion</a></h3>
+<h3 id="currency-conversion"><a class="link" href="#currency-conversion">3.4. Currency Conversion</a></h3>
 <div class="paragraph">
 <p>The Currency conversion is achieved by having a default base currency that all expenses and budgets use if one is not specified. The expenses that are stored
 with a different currency can be converted from the base currency and back. Every time a currency is specified, the present day exchange rate is stored with the expense. This
@@ -490,14 +591,14 @@ with conversions, even without internet access to retrieve the latest data for t
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">3.4. Logging</a></h3>
+<h3 id="logging"><a class="link" href="#logging">3.5. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.5, &#8220;Configuration&#8221;</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.6, &#8220;Configuration&#8221;</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -528,7 +629,7 @@ with conversions, even without internet access to retrieve the latest data for t
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.5. Configuration</a></h3>
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.6. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g user prefs file location, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
@@ -1951,4 +2052,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 15:11:50 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 15:18:51 UTC</div></div></div></body></html>
