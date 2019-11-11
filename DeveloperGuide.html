@@ -583,6 +583,11 @@ event of <strong>F3</strong> or <strong>F4</strong> is triggered, it will naviga
 <div class="paragraph">
 <p>The following sequence diagram illustrates the flow of how history commands works:</p>
 </div>
+<div class="imageblock">
+<div class="content">
+<img src="images/HistorySequenceDiagram.png" alt="HistorySequenceDiagram">
+</div>
+</div>
 </div>
 </div>
 <div class="sect2">
@@ -790,12 +795,6 @@ Conversions are done in <code>Expense#getConvertedAmount</code> for conversion b
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">retrieve all expenses for today</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">review my spending for the day</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">find an expense name</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">locate a specific expense without having to go through the entire list</p></td>
 </tr>
@@ -812,10 +811,16 @@ Conversions are done in <code>Expense#getConvertedAmount</code> for conversion b
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">terminate a recurring expense</p></td>
 <td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">retrieve all expenses for today</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">review my spending for the day</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
@@ -2093,4 +2098,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 15:41:17 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 17:37:09 UTC</div></div></div></body></html>
