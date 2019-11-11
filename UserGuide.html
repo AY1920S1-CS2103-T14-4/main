@@ -1,6 +1,6 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>MYMorise - User Guide</title><link rel="stylesheet" href="stylesheets/gh-pages.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="seedu-header"><nav class="navbar navbar-lg navbar-light bg-lighter"><div class="container"><a class="navbar-brand" href="https://se-edu.github.io/"><img src="images/SeEduLogo.png" alt="SE-EDU"></a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level1">AB-1</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level2">AB-2</a></li><li class="nav-item"><a class="nav-link active" href="index.html">AB-3</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level4">AB-4</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/learningresources">Resources</a></li></ul></div></nav></div><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="index.html">AddressBook-Level3</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link active" href="UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="LearningOutcomes.html">LOs</a></li><li class="nav-item"><a class="nav-link" href="AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/se-edu/addressbook-level3"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>MYMorise - User Guide</h1></div><div id="content"><div id="preamble">
+<link rel="stylesheet" href="stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="seedu-header"><nav class="navbar navbar-lg navbar-light bg-lighter"><div class="container"><a class="navbar-brand" href="https://se-edu.github.io/"><img src="images/SeEduLogo.png" alt="SE-EDU"></a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level1">AB-1</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level2">AB-2</a></li><li class="nav-item"><a class="nav-link active" href="index.html">AB-3</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level4">AB-4</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/learningresources">Resources</a></li></ul></div></nav></div><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="index.html">MYMorise</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link active" href="UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="LearningOutcomes.html">LOs</a></li><li class="nav-item"><a class="nav-link" href="AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/AY1920S1-CS2103-T14-4/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>MYMorise - User Guide</h1></div><div id="content"><div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
 <p>By: <code>Team T14-4</code>      Since: <code>Sep 2019</code>      Licence: <code>MIT</code></p>
@@ -25,15 +25,13 @@
 <li><a href="#automatic-currency-conversion-for-foreign-currencies">3.10. Automatic currency conversion for foreign currencies</a></li>
 <li><a href="#clearing-a-list-code-clear-code">3.11. Clearing a list : <code>clear</code></a></li>
 <li><a href="#autocomplete">3.12. Autocomplete</a></li>
-<li><a href="#exiting-the-program-code-exit-code">3.13. Exiting the program : <code>exit</code></a></li>
-<li><a href="#saving-data">3.14. Saving data</a></li>
-<li><a href="#automatic-currency-conversion-for-foreign-currencies-code-coming-in-v1-4-code">3.15. Automatic currency conversion for foreign currencies <code>[coming in v1.4]</code></a></li>
-<li><a href="#locating-expenses-by-name-code-find-code-code-coming-in-v1-4-code">3.16. Locating expenses by name: <code>find</code> <code>[coming in v1.4]</code></a></li>
-<li><a href="#display-expense-by-tag-in-chart-code-coming-in-v2-0-code">3.17. Display expense by tag in chart <code>[coming in v2.0]</code></a></li>
-<li><a href="#set-a-recurring-expense-code-coming-in-v2-0-code">3.18. Set a Recurring Expense <code>[coming in v2.0]</code></a></li>
-<li><a href="#undo-redo-commands-code-coming-in-v2-0-code">3.19. Undo/Redo commands <code>[coming in v2.0]</code></a></li>
-<li><a href="#show-command-history-code-coming-in-v2-0-code">3.20. Show command history <code>[coming in v2.0]</code></a></li>
-<li><a href="#faq">3.21. FAQ</a></li>
+<li><a href="#retrieve-the-history-of-the-commands-executed-code-history-code">3.13. Retrieve the history of the commands executed: <code>history</code></a></li>
+<li><a href="#exiting-the-program-code-exit-code">3.14. Exiting the program : <code>exit</code></a></li>
+<li><a href="#saving-data">3.15. Saving data</a></li>
+<li><a href="#locating-expenses-by-name-code-find-code-code-coming-in-v2-0-code">3.16. Locating expenses by name: <code>find</code> <code>[coming in v2.0]</code></a></li>
+<li><a href="#set-a-recurring-expense-code-coming-in-v2-0-code">3.17. Set a Recurring Expense <code>[coming in v2.0]</code></a></li>
+<li><a href="#undo-redo-commands-code-coming-in-v2-0-code">3.18. Undo/Redo commands <code>[coming in v2.0]</code></a></li>
+<li><a href="#faq">3.19. FAQ</a></li>
 </ul>
 </li>
 <li><a href="#command-summary">4. Command Summary</a></li>
@@ -44,7 +42,7 @@
 <h2 id="introduction"><a class="link" href="#introduction">1. Introduction</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>MYMorise&#8201;&#8212;&#8201;Manage Your Money(MYM) is a desktop application for those who <strong>prefer tracking personal expenses on their
+<p><strong>MYMorise&#8201;&#8212;&#8201;Manage Your Money(MYM)</strong> is a desktop application for those who <strong>prefer tracking personal expenses on their
 computers</strong>. With MYMorise, you can easily see your daily expenses as well as a summary, along with other useful
 functionalities. More importantly, MYMorise is <strong>optimized for those who prefer to work with Command Line Interface (CLI)</strong> while still having the benefits of a <strong>Graphical User Interface
 (GUI)</strong>. Interested? Jump to the <a href="#quick-start">Section 2, &#8220;Quick Start&#8221;</a> to get started. Enjoy!</p>
@@ -107,10 +105,7 @@ functionalities. More importantly, MYMorise is <strong>optimized for those who p
 <p>Copy the jar file to the folder you want to use as the home folder for MYMorise.</p>
 </li>
 <li>
-<p>Double-click the jar to start the app. The GUI should appear in a few seconds.</p>
-</li>
-<li>
-<p>If Step 4 doesn&#8217;t work, try <code>java -jar MYMorise.jar</code> in your CLI.</p>
+<p>Run <code>java -jar path_to_folder/MYMorise.jar</code> in your CLI. The GUI should appear in a few seconds.</p>
 <div class="imageblock">
 <div class="content">
 <img src="images/Ui.png" alt="Ui" width="790">
@@ -126,14 +121,14 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <div class="ulist">
 <ul>
 <li>
-<p><strong><code>listDefaultExpenses</code></strong> : lists all expenses</p>
+<p><strong><code>listDefaultExpenses</code></strong> : lists all expenses that do not fall into any budget.</p>
 </li>
 <li>
-<p><strong><code>expense</code></strong><code>n/Textbook a/23.50 t/education t/school</code> : adds an expense named <code>Textbook</code> to the expense list with the tags
-<code>education</code> and <code>school</code>.</p>
+<p><strong><code>expense</code></strong><code>n/Textbook a/23.50 t/education</code> : adds an expense named <code>Textbook</code> to the expense list with the tag
+<code>education</code>.</p>
 </li>
 <li>
-<p><strong><code>delete</code></strong><code>3</code> : deletes the 3rd expense shown in the current list</p>
+<p><strong><code>delete</code></strong><code>3</code> : deletes the 3rd item shown in the centre list panel.</p>
 </li>
 <li>
 <p><strong><code>exit</code></strong> : exits the app</p>
@@ -163,9 +158,6 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 </li>
 <li>
 <p>Items in square brackets are optional e.g <code>n/NAME [t/TAG]</code> can be used as <code>n/Bread t/Food</code> or as <code>n/Bread</code>.</p>
-</li>
-<li>
-<p>Items post-fixed with <code>…</code>​ can be used zero or more times e.g. <code>[t/TAG]…</code>​ can be excluded or include 1 or more tags <code>t/food t/drinks</code>.</p>
 </li>
 </ul>
 </div>
@@ -205,7 +197,7 @@ Format: <code>expense n/NAME a/AMOUNT [c/CURRENCY] [d/DATE] [t/TAG]…​</code>
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-An expense with no currency specified will have the default currency set.
+An expense with no currency specified will have the default currency set (SGD).
 </td>
 </tr>
 </table>
@@ -218,18 +210,6 @@ An expense with no currency specified will have the default currency set.
 </td>
 <td class="content">
 An expense with no date specified will default to current date and time of addition.
-</td>
-</tr>
-</table>
-</div>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
-</td>
-<td class="content">
-An expense can have any number of tags (including no tags).
 </td>
 </tr>
 </table>
@@ -522,72 +502,6 @@ Deletes the second budget in the budget list in MYMorise.</p>
 <div class="sect2">
 <h3 id="automatic-currency-conversion-for-foreign-currencies"><a class="link" href="#automatic-currency-conversion-for-foreign-currencies">3.10. Automatic currency conversion for foreign currencies</a></h3>
 <div class="paragraph">
-<p>MyMorise is able to automatically display foreign currencies in the default currency set by the user. By default this is set
-to Singapore Dollars (SGD). The conversions are done in the following scenarios:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>When an expenses specifies a currency that is not the default currency</p>
-</li>
-<li>
-<p>When an expense specifies a currency that is different from that budget it is associated to.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>This automatic conversion allows for the computation of budgets and expenses regardless of their underlying currencies to provide
-a cleaner experience when viewing budgets and expenses with multiple differing currencies.</p>
-</div>
-<div class="paragraph">
-<p>The latest Foreign Exchange data for a limited set of supported currencies are updated whenever the application is launched. The list of supported currencies are as follows:</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="clearing-a-list-code-clear-code"><a class="link" href="#clearing-a-list-code-clear-code">3.11. Clearing a list : <code>clear</code></a></h3>
-<div class="paragraph">
-<p>Deletes all items in the current list.*<br>
-Format: <code>clear</code></p>
-</div>
-<div class="paragraph">
-<p>Using <code>clear</code> while viewing an expense list will delete all expenses in that list.<br>
-Using <code>clear</code> while viewing the budget list will delete all budgets in the list.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="autocomplete"><a class="link" href="#autocomplete">3.12. Autocomplete</a></h3>
-<div class="paragraph">
-<p>Equip with IDE-like autocomplete function for faster input and
-enables users to quickly fill in command arguments with
-autocomplete suggestions.</p>
-</div>
-<div class="paragraph">
-<p>Suggestions include commonly used words in MYMorise and users may customize the suggestion list by changing the
-<code>vocabulary.txt</code></p>
-</div>
-<div class="paragraph">
-<p>When the user types, if there are suggestions for a certain input, user can press <kbd>tab</kbd> to autofill the first
-suggestion or press <kbd>DOWN</kbd> and <kbd>UP</kbd> to navigate between suggestions and then press <kbd>tab</kbd> or <kbd>enter</kbd>
-to autofill the selected item. User may also just <kbd>click</kbd> on an item to autofill.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.13. Exiting the program : <code>exit</code></a></h3>
-<div class="paragraph">
-<p>Exits the program.<br>
-Format: <code>exit</code></p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="saving-data"><a class="link" href="#saving-data">3.14. Saving data</a></h3>
-<div class="paragraph">
-<p>Expense and Budget data are saved in the hard disk automatically after any command that changes the data.
-There is no need to save manually.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="automatic-currency-conversion-for-foreign-currencies-code-coming-in-v1-4-code"><a class="link" href="#automatic-currency-conversion-for-foreign-currencies-code-coming-in-v1-4-code">3.15. Automatic currency conversion for foreign currencies <code>[coming in v1.4]</code></a></h3>
-<div class="paragraph">
 <p>MYMorise is able to automatically display foreign currencies in the default currency set by the user. By default this is set
 to Singapore Dollars (SGD). The conversions are done in the following scenarios:</p>
 </div>
@@ -668,7 +582,92 @@ a cleaner experience when viewing budgets and expenses with multiple differing c
 </table>
 </div>
 <div class="sect2">
-<h3 id="locating-expenses-by-name-code-find-code-code-coming-in-v1-4-code"><a class="link" href="#locating-expenses-by-name-code-find-code-code-coming-in-v1-4-code">3.16. Locating expenses by name: <code>find</code> <code>[coming in v1.4]</code></a></h3>
+<h3 id="clearing-a-list-code-clear-code"><a class="link" href="#clearing-a-list-code-clear-code">3.11. Clearing a list : <code>clear</code></a></h3>
+<div class="paragraph">
+<p>Deletes all items in the current list.*<br>
+Format: <code>clear</code></p>
+</div>
+<div class="paragraph">
+<p>Using <code>clear</code> while viewing an expense list will delete all expenses in that list.<br>
+Using <code>clear</code> while viewing the budget list will delete all budgets in the list.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="autocomplete"><a class="link" href="#autocomplete">3.12. Autocomplete</a></h3>
+<div class="paragraph">
+<p>Equip with IDE-like autocomplete function for faster input and
+enables users to quickly fill in command arguments with
+autocomplete suggestions.</p>
+</div>
+<div class="paragraph">
+<p>Suggestions include commonly used words in MYMorise and users may customize the suggestion list by changing the
+<code>vocabulary.txt</code></p>
+</div>
+<div class="paragraph">
+<p>When the user types, if there are suggestions for a certain input, user can press <kbd>tab</kbd> to autofill the first
+suggestion or press <kbd>DOWN</kbd> and <kbd>UP</kbd> to navigate between suggestions and then press <kbd>tab</kbd> or <kbd>enter</kbd>
+to autofill the selected item. User may also just <kbd>click</kbd> on an item to autofill.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="retrieve-the-history-of-the-commands-executed-code-history-code"><a class="link" href="#retrieve-the-history-of-the-commands-executed-code-history-code">3.13. Retrieve the history of the commands executed: <code>history</code></a></h3>
+<div class="paragraph">
+<p>Returns the list of history commands executed.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+Press <kbd>F3</kbd> to navigate to previous input; Press <kbd>F4</kbd> to navigate to next input;
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Use keyboard to navigate through the history will only take effect when the focus is in <code>TextField</code>.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<kbd>UP</kbd> and <kbd>DOWN</kbd> cannot be used here to navigate through the history since they are used to navigate through
+the autocomplete suggestions.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.14. Exiting the program : <code>exit</code></a></h3>
+<div class="paragraph">
+<p>Exits the program.<br>
+Format: <code>exit</code></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="saving-data"><a class="link" href="#saving-data">3.15. Saving data</a></h3>
+<div class="paragraph">
+<p>Expense and Budget data are saved in the hard disk automatically after any command that changes the data.
+There is no need to save manually.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="locating-expenses-by-name-code-find-code-code-coming-in-v2-0-code"><a class="link" href="#locating-expenses-by-name-code-find-code-code-coming-in-v2-0-code">3.16. Locating expenses by name: <code>find</code> <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
 <p>Finds all expenses by name, date, tag.<br>
 Format: <code>find [n/NAME] [d/DATE] [t/TAG]</code></p>
@@ -713,31 +712,19 @@ Returns any expense having names <code>Cheesecake</code>, eg: <code>Strawberry C
 </div>
 </div>
 <div class="sect2">
-<h3 id="display-expense-by-tag-in-chart-code-coming-in-v2-0-code"><a class="link" href="#display-expense-by-tag-in-chart-code-coming-in-v2-0-code">3.17. Display expense by tag in chart <code>[coming in v2.0]</code></a></h3>
-<div class="paragraph">
-<p><em>{Displays the expense in a pie chart to show breakdown of expenses.}</em></p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="set-a-recurring-expense-code-coming-in-v2-0-code"><a class="link" href="#set-a-recurring-expense-code-coming-in-v2-0-code">3.18. Set a Recurring Expense <code>[coming in v2.0]</code></a></h3>
+<h3 id="set-a-recurring-expense-code-coming-in-v2-0-code"><a class="link" href="#set-a-recurring-expense-code-coming-in-v2-0-code">3.17. Set a Recurring Expense <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
 <p><em>{Sets a recurring expense for a specific duration and frequency.}</em></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="undo-redo-commands-code-coming-in-v2-0-code"><a class="link" href="#undo-redo-commands-code-coming-in-v2-0-code">3.19. Undo/Redo commands <code>[coming in v2.0]</code></a></h3>
+<h3 id="undo-redo-commands-code-coming-in-v2-0-code"><a class="link" href="#undo-redo-commands-code-coming-in-v2-0-code">3.18. Undo/Redo commands <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
 <p><em>{Allows user to undo and redo commands.}</em></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="show-command-history-code-coming-in-v2-0-code"><a class="link" href="#show-command-history-code-coming-in-v2-0-code">3.20. Show command history <code>[coming in v2.0]</code></a></h3>
-<div class="paragraph">
-<p><em>{User is able to navigate using up and down keys to cycle through past commands typed during the session.}</em></p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="faq"><a class="link" href="#faq">3.21. FAQ</a></h3>
+<h3 id="faq"><a class="link" href="#faq">3.19. FAQ</a></h3>
 <div class="paragraph">
 <p><strong>Q</strong>: How do I transfer my data to another Computer?<br>
 <strong>A</strong>: Run the app in the other computer and overwrite the empty data file it creates with the file that contains the data from your MYMorise/data folder.</p>
@@ -791,9 +778,12 @@ e.g. <code>delete 3</code></p>
 <p><strong>Clear</strong> : <code>clear</code></p>
 </li>
 <li>
+<p><strong>History</strong>: <code>history</code></p>
+</li>
+<li>
 <p><strong>Exit</strong> : <code>exit</code></p>
 </li>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 09:20:39 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 11:12:13 UTC</div></div></div></body></html>
