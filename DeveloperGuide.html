@@ -288,10 +288,13 @@ The lifeline for <code>DeleteCommandParser</code> should end at the destroy mark
 <p>stores a <code>UserPref</code> object that represents the user&#8217;s preferences.</p>
 </li>
 <li>
-<p>stores an <code>ExchangeData</code> object that represents the foreign exchange rates for conversion of currencies.</p>
+<p>stores a <code>BudgetList</code> object that represents the user&#8217;s budgets.</p>
 </li>
 <li>
-<p>stores the MYMorise data.</p>
+<p>stores an <code>ExpenseList</code> object that represents the user&#8217;s untagged expenses.</p>
+</li>
+<li>
+<p>stores an <code>ExchangeData</code> object that represents the foreign exchange rates for conversion of currencies.</p>
 </li>
 <li>
 <p>exposes an unmodifiable <code>ObservableList&lt;Expense&gt;</code> and an unmodifiable <code>ObservableList&lt;Budget&gt;</code> that can be 'observed' e.g. the UI can be bound to either list so that the UI automatically updates when the data in the list change.</p>
@@ -319,7 +322,13 @@ The lifeline for <code>DeleteCommandParser</code> should end at the destroy mark
 <p>can save <code>UserPref</code> objects in json format and read it back.</p>
 </li>
 <li>
-<p>can save the MYMorise data in json format and read it back.</p>
+<p>can save <code>Budget</code> objects in json format and read it back.</p>
+</li>
+<li>
+<p>can save <code>Expense</code> objects in json format and read it back.</p>
+</li>
+<li>
+<p>can read <code>Exchange</code> objects in json format.</p>
 </li>
 </ul>
 </div>
@@ -578,16 +587,48 @@ event of <strong>F3</strong> or <strong>F4</strong> is triggered, it will naviga
 </div>
 <div class="sect2">
 <h3 id="currency-conversion"><a class="link" href="#currency-conversion">3.4. Currency Conversion</a></h3>
+<div class="sect3">
+<h4 id="implementation-5"><a class="link" href="#implementation-5">3.4.1. Implementation</a></h4>
 <div class="paragraph">
 <p>The Currency conversion is achieved by having a default base currency that all expenses and budgets use if one is not specified. The expenses that are stored
 with a different currency can be converted from the base currency and back. Every time a currency is specified, the present day exchange rate is stored with the expense. This
 is to ensure that the expense value is timeless.</p>
 </div>
 <div class="paragraph">
-<p>Foreign Currency exchange rates between the default currency, Singapore Dollars (SGD) and a number of supported currencies is made possible by means
-of a HTTP Request to an endpoint returning a JSON containing the exchange rates. This JSON response is stored as is on disk and is only requested once
-upon first launching the application. A default data-set with relatively recent data is in place to ensure that MyMorise is still usable, albeit with some margin of error
-with conversions, even without internet access to retrieve the latest data for the day.</p>
+<p>This was implemented in the <code>java.seedu.address.model.exchangedata</code> package, which contains <code>ExchangeDataSingleton</code>, <code>ExchangeData</code>, and <code>Rates</code>. These classes facilitate retrieval of exchange rates that will be requested from various parts of the app, namely <code>Expense</code> and <code>Budget</code>.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 1</strong>
+The foreign currency exchange rates are downloaded for the app to use from <a href="http://exchangeratesapi.io/">ExchangeRatesAPI.io</a> using their endpoint <code><a href="https://api.exchangeratesapi.io/latest?base=SGD" class="bare">https://api.exchangeratesapi.io/latest?base=SGD</a></code>. The endpoint returns the data in JSON format, which works well with the existing JSON based storage used for <code>Expense</code> and <code>Budget</code>. This was implemented in the <code>java.seedu.address.commons.utils</code> package containing <code>HttpsClientUtil</code> which facilitates the Asynchronous calls to the endpoint to update the local copy of the foreign currency exchange rates upon app startup.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 2</strong>
+The JSON response is persisted on disk. A default data-set of exchange rates will be generated at runtime (but not stored) in the case of unstable or no internet access if one is not yet present. If one was present however a more recent one could not be downloaded, the existing data will be reused.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 3</strong>
+If the exchange data is present as a JSON, it will first be loaded into its JSON reflection class <code>JsonAdaptedExchangeData</code> which depends on <code>JsonAdaptedRates</code>. These classes assist in the conversions of the JSON to the Model Class <code>ExchangeData</code>.</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>Presently, ExchangeData is also stored in the StorageManager which was intended to be used to store multiple instances of ExchangeData to load historical exchange rates when the user does an edit, however this proved to be infeasible to implement within the course of the project.</pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Step 4</strong>
+The <code>ExchangeDataSingleton</code> is updated with the new  <code>ExchangeData</code> using the <code>ExchangeDataSingleton#updateInstance</code>. The reason for using the Singleton pattern in this case was to ensure that one and only one instance of <code>ExchangeData</code> is being referenced to retrieve data at any point in time. Since it is also required to be accessed by <code>Expense</code> and <code>Budget</code>.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 5</strong>
+Conversions are done in <code>Expense#getConvertedAmount</code> for conversion back into the base currency (SGD) and <code>Expense#getConvertedAmount(Currency currency)</code> for conversions to any other currency. As most transactions in the app that require the conversion of currency involve an expense (including recomputing <code>amountLeft</code> of <code>Budget</code>), the computation is done in the expense. The following are the instance where the currency is converted:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Whenever an expense is displayed on the <code>ExpenseCard</code> or <code>CommandResult</code>, its converted value will be computed and displayed together with its conversion rate and original amount.</p>
+</li>
+</ul>
+</div>
 </div>
 </div>
 <div class="sect2">
@@ -2052,4 +2093,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 15:18:51 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 15:36:53 UTC</div></div></div></body></html>
