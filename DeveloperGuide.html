@@ -634,6 +634,66 @@ Conversions are done in <code>Expense#getConvertedAmount</code> for conversion b
 </li>
 </ul>
 </div>
+<div class="paragraph">
+<p>The following sequence diagram shows how currency conversion works:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/CurrencyConversionSequenceDiagram.png" alt="CurrencyConversionSequenceDiagram">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-consideration-2"><a class="link" href="#design-consideration-2">3.4.2. Design Consideration</a></h4>
+<div class="paragraph">
+<p>There were 3 main design choices we had to choose from for the implementation of the Currency Conversion Feature.<br></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1:</strong> Do not store currency rates when expenses are added with a selected currency and simply store the currency.<br></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easy to implement, recompute the amount of the expense based on the present day currency exchange rate.</p>
+</li>
+<li>
+<p>Cons: If there was a crash in any currency, the expense amount will no longer be timeless. For instance, if an expense of of 10 MYR was stored today and was converted to 3 SGD (converted at 3.33), then the exchange rate became 2.0 the following day, the budget would reflect the amount left wrongly when it was recomputed the next day.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Persist all the exchange rates to file every time the app is launched to ensure that the user&#8217;s expenses are computed based on the exchange rate that was on that specific day. The specific exchange rate used is not stored in the expense itself.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Achieve timeless expense which will provide the most accurate values when computing the budget amount left.</p>
+</li>
+<li>
+<p>Cons: Slightly harder to implement as there are multiple sources for exchange rate data based on dates. This will also bloat the amount of space requirement of the app as time persists.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 3:</strong> Store the specific exchange rate used together with the expense whenever it is added, update the exchange rates daily and only persist the latest rates.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Achieve timeless expense which will provide the most accurate values when computing the budget amount left, without the need to store historical exchange rates. Reduced space used and single source of truth for computing exchange rates.</p>
+</li>
+<li>
+<p>Cons: Expenses added in the past that have their currencies changed will not be able to use the exchange rate of that specific day.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Alternative 3</strong> was chosen as it was a balance between the cons across all 3 considerations, and the timelessness of an expense carries more weight than the unlikely event that the user would need to alter the currency of a past expense.</p>
+</div>
 </div>
 </div>
 <div class="sect2">
@@ -2098,4 +2158,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 17:43:19 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 17:53:50 UTC</div></div></div></body></html>
